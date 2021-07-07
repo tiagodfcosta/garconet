@@ -5,19 +5,29 @@ const PORT = 3001
 const app = express()
 app.use(express.json())
 
-app.get("/", (req, res) => {
-    res.status(200).json({
-        message: 'Working'
-    })
+
+// validação dos dados inseridos com os dados na base de dados
+app.post("/auth", async (req, res) => {
+    const { username, password } = req.body;
+    const user = await findUser(username);
+    if(user && user.password === password) {
+        const sessionId = await insertSession(user._id)
+        res.status(200).json({ token: sessionId })
+    } else {
+        res.sendStatus(404)
+    }
 })
 
+// vai verificar o utilizador existente
+// app.get("/user", verifyUser, async (req, res) => {
+//     res.status(200).json({ user: req.user.username })
+// })
+
+// criação de user na base de dados
 app.post("/user", async (req, res) => {
     const id = await insertUser(req.body)
     res.status(200).json({id})
 })
 
-app.get("/user", (req, res) => {
-    res.status(200).send("nuggets")
-})
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
