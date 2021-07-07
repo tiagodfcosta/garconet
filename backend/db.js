@@ -12,7 +12,7 @@ const DB_GARCONET = "autenticacao"
 //Declarar o client
 let client
 
-// função que liga o backEnd com o servidor
+// função que faz algo que nós ainda não sabemos o que é !!! Tal como ligar o MongoDB
 async function connect(uri) {
     try {
         if (client) return client
@@ -39,7 +39,7 @@ async  function getCollection(dbName, colName){
 
 // função de criar usuário
 
-async function insertUser(user){
+export async function insertUser(user){
     const collection = await getCollection(DB_GARCONET, "users");
     //TODO para futuro -- encriptação 
     // user.password = await bcrypt.hash(user.password, saltRounds);
@@ -49,7 +49,7 @@ async function insertUser(user){
 }
 
 // função para encontrar utilizador por nome de utilizador
-async function findUser(username) {
+export async function findUser(username) {
     const collection = await getCollection(DB_GARCONET, "users");
     const res = await collection.findOne({username});
     return res;
@@ -57,17 +57,37 @@ async function findUser(username) {
 
 
 // função para encontrar utilizador por id
-async function findUserById(id) {
+export async function findUserById(id) {
     const collection = await getCollection(DB_GARCONET, "users");
     const res = await collection.findOne({_id: mongodb.ObjectId(id)})
     return res;
 }
 
-async function insertSession(uid) {
+export async function insertSession(uid) {
     const collection = await getCollection(DB_GARCONET, "sessions");
     const res = await collection.insertOne({
         uid,
-        expiresAt: new Date(new Date().valueOf() + (5 * 60 * 1000))
+        expiresAt: new Date(new Date().valueOf() + (50 * 60 * 1000))
     })
     return res.insertedId
 }
+
+export async function findSession(id) {
+    const collection = await getCollection(DB_GARCONET, "sessions");
+    const res =await collection.findOne({_id: mongodb.ObjectId(id)})
+    return res;
+}
+
+export async function extendSession(id) {
+    const collection = await getCollection(DB_GARCONET, "sessions");
+    const res = await collection.updateOne(
+        {id: mongodb.ObjectId(id)},
+        {
+            $set: {
+                expiresAt: new Date(new Date().valueOf() + (50 * 60 * 1000))
+            }
+        }
+    )
+    return res;
+}
+
