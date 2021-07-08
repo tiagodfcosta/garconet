@@ -1,5 +1,5 @@
 import express from 'express';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -29,9 +29,9 @@ app.post("/user", async (req, res) => {
     res.status(200).json({id})
 })
 
+app.get("/category", async (req, res) => {
+    const products = await findProducts()
+    res.status(200).json({products})
+})
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
-
-app.get("/category", async (req, res) => {
-    
-})

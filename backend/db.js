@@ -97,3 +97,9 @@ export async function insertProducts(produtos){
     const res = await collection.insertMany(produtos);
     return res;
 }
+
+export async function findProducts() {
+    const collection = await getCollection(DB_GARCONET, "produtos");
+    const res = await collection.find().toArray()
+    return res
+}
