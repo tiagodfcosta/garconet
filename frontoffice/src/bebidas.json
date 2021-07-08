@@ -1,0 +1,21 @@
+{
+  "bebidas":  [{
+    "nome" : "CocaCola",
+    "preço" : "1,50",
+    "descrição" : "um dia será feita",
+    "capacidade": "um dia será feita"
+    },
+    {
+    "nome" : "7up",
+    "preço" : "1,50",
+    "descrição" : "um dia será feita",
+    "capacidade": "um dia será feita"
+    },
+    {
+    "nome" : "Nestea",
+    "preço" : "1,50",
+    "descrição" : "um dia será feita",
+    "capacidade": "um dia será feita"
+    }
+
+]}
