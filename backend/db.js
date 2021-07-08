@@ -89,5 +89,11 @@ export async function extendSession(id) {
         }
     )
     return res;
+    
 }
 
+export async function insertProducts(produtos){
+    const collection = await getCollection(DB_GARCONET, "produtos");
+    const res = await collection.insertMany(produtos);
+    return res;
+}

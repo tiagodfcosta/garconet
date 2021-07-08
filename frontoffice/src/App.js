@@ -36,6 +36,6 @@ export default function App() {
 function MenuPart() {
   const {category} = useParams()
   return (
-    <div>{category}</div>
+    fetch("/category") 
   )
 }

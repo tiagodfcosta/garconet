@@ -31,3 +31,7 @@ app.post("/user", async (req, res) => {
 
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
+
+app.get("/category", async (req, res) => {
+    
+})
