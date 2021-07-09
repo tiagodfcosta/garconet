@@ -12,8 +12,7 @@ class PaginaPrincipal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            "quantidadedeitens": 0,
-            "valortotal": 0
+            
         }
     }
 
@@ -31,8 +30,8 @@ class PaginaPrincipal extends React.Component {
                 <button>Ver conta atual</button>
                 <button>Fechar a conta</button>
                 <button>Pedir ajuda</button>
-                <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
-                <p>Valor total: {this.state.valortotal}</p>
+                <p>Quantidade de itens: {this.props.quantidade}</p>
+                <p>Valor total: {this.props.valortotal}</p>
                 
             </div>
             </>
