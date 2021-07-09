@@ -2,6 +2,7 @@ import './App.css';
 import Paginadelogin from "./Paginadelogin"
 import PaginaPrincipal from './Paginaprincipal';
 import BackButton from './Componentes/BackButton';
+import React, { useEffect, useState } from "react"
 import {Menu} from './Menu'
 import { MenuPart } from './Componentes/MenuPart';
 import {
@@ -35,3 +36,21 @@ export default function App() {
   );
 }
 
+function MenuPart() {
+  const {category} = useParams();
+
+  const [prods, setProds] = useState([])    
+
+  useEffect(() => {
+    fetch("/category")
+    .then(products => products.json())
+    .then(json => setProds(json.products))
+
+  }, [])
+
+  return (
+    <ul>{prods.map(e => {
+      return <li>{e.nome}, {e.preço}</li>
+    })}</ul>
+  )
+}
