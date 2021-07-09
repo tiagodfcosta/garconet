@@ -1,4 +1,5 @@
 import React from "react";
+import "./popUp.css";
  
 export default function Popup(props) {
   return (
