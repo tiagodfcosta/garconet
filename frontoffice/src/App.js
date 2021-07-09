@@ -2,7 +2,7 @@ import './App.css';
 import Paginadelogin from "./Paginadelogin"
 import PaginaPrincipal from './Paginaprincipal';
 import BackButton from './Componentes/BackButton';
-import React, { useEffect, useState } from "react"
+import React from "react"
 import {Menu} from './Menu'
 import { MenuPart } from './Componentes/MenuPart';
 import {
