@@ -1,7 +1,11 @@
 import './App.css';
-import PaginaDeLogin from './Paginadelogin';
+import Paginadelogin from "./Paginadelogin"
 import PaginaPrincipal from './Paginaprincipal';
+<<<<<<< HEAD
 import BackButton from './Componentes/BackButton';
+=======
+import React, { useEffect, useState } from "react"
+>>>>>>> 2998ecd (useEffect)
 import {Menu} from './Menu'
 import {
   BrowserRouter as Router,
@@ -36,9 +40,25 @@ export default function App() {
 }
 
 function MenuPart() {
-  const {category} = useParams()
+  const {category} = useParams();
+
+  const [prods, setProds] = useState([])    
+
+  useEffect(() => {
+    fetch("/category")
+    .then(products => products.json())
+    .then(json => setProds(json.products))
+
+  }, [])
+
   return (
+<<<<<<< HEAD
     <h1>teste</h1>
     // fetch("/category") 
+=======
+    <ul>{prods.map(e => {
+      return <li>{e.nome}, {e.preço}</li>
+    })}</ul>
+>>>>>>> 2998ecd (useEffect)
   )
 }
