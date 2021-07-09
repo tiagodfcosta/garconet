@@ -1,6 +1,7 @@
 import './App.css';
 import PaginaDeLogin from './Paginadelogin';
 import PaginaPrincipal from './Paginaprincipal';
+import BackButton from './Componentes/BackButton';
 import {Menu} from './Menu'
 import {
   BrowserRouter as Router,
@@ -14,6 +15,7 @@ export default function App() {
   return (
    <Router>
      <div>
+     <BackButton />
      <nav>
       <Link to="/"></Link>
      </nav>
@@ -36,6 +38,7 @@ export default function App() {
 function MenuPart() {
   const {category} = useParams()
   return (
-    fetch("/category") 
+    <h1>teste</h1>
+    // fetch("/category") 
   )
 }
