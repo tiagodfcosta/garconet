@@ -34,7 +34,7 @@ export function MenuPart(props) {
         })}</ul> 
         {isOpen && <Popup
       content={<>
-        <b>Coquinhaaa huummm</b>
+        <b>Coquinhaaa</b>
         <p>Uma bebiba maravilhosa que mata sua sede e engorda um pouquinho.</p>
         <button>Adicionar ao pedido</button>
       </>}
