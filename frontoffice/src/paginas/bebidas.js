@@ -22,12 +22,18 @@ export class Bebidas extends React.Component{
 
     render(){
         return (
+        <>
+            
+            <div>
+           
+            </div>
             <div>
                 <button onClick={this.handleClick}>Coca</button>
                 <button onClick={this.handleClick}>extasi</button>
                 <button onClick={this.handleClick}>com sabor</button>
                 <button onClick={this.handleClick}>a careca</button>
             </div>
+        </>
         )
     }
 }
