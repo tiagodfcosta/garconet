@@ -30,8 +30,12 @@ app.post("/user", async (req, res) => {
 })
 
 app.get("/category", async (req, res) => {
-    const products = await findProducts()
-    res.status(200).json({products})
+    try {
+        const products = await findProducts()
+        res.status(200).json({products})
+    } catch(err) {
+        console.log("erroooou" + err)
+    }
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))

@@ -101,5 +101,6 @@ export async function insertProducts(produtos){
 export async function findProducts() {
     const collection = await getCollection(DB_GARCONET, "produtos");
     const res = await collection.find().toArray()
+    console.log(res);
     return res
 }
