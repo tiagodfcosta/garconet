@@ -4,7 +4,7 @@ import {
     useParams
   } from "react-router-dom";
 
-export function MenuPart() {
+export function MenuPart(props) {
     const {category} = useParams();
   
     const [prods, setProds] = useState([])    
@@ -17,8 +17,16 @@ export function MenuPart() {
     }, [])
   
     return (
-      <ul>{prods.map(e => {
-        return <li>{e.nome}, {e.preço}</li>
-      })}</ul>
+      <div>
+        <ul>{prods.map(e => {
+          return <li>
+            {e.nome}<br/>
+            {e.preço}<br/>
+            <button>Selecionar</button>
+          </li>
+        })}</ul>
+        <p>Quantidade de itens: {props.quantidade}</p>
+        <p>Valor total: {props.valortotal}</p>
+      </div>
     )
   }

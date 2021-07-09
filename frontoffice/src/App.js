@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import Paginadelogin from "./Paginadelogin"
 import PaginaPrincipal from './Paginaprincipal';
 import BackButton from './Componentes/BackButton';
@@ -12,28 +13,38 @@ import {
   Link,
 } from "react-router-dom";
 
-export default function App() {
-  return (
-   <Router>
-     <div>
-     <BackButton />
-     <nav>
-      <Link to="/"></Link>
-     </nav>
-     <Switch>
-        <Route exact path="/">
-        <PaginaPrincipal />
-        </Route>
-        <Route path="/menu/:category">
-          <MenuPart/>
-        </Route>
-        <Route path="/menu">
-          <Menu/>
-        </Route>
-     </Switch>
-     </div>
-   </Router>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      "quantidadedeitens": 0,
+      "valortotal": 0
+    }
+  }
+
+  render() {
+    return (
+     <Router>
+       <div>
+       <BackButton />
+       <nav>
+        <Link to="/"></Link>
+       </nav>
+       <Switch>
+          <Route exact path="/">
+          <PaginaPrincipal quantidade={this.state.quantidadedeitens} valortotal={this.state.valortotal}/>
+          </Route>
+          <Route path="/menu/:category">
+            <MenuPart quantidade={this.state.quantidadedeitens} valortotal={this.state.valortotal}/>
+          </Route>
+          <Route path="/menu">
+            <Menu quantidade={this.state.quantidadedeitens} valortotal={this.state.valortotal}/>
+          </Route>
+       </Switch>
+       </div>
+     </Router>
+    );
+  }
 }
 
 function MenuPart() {
