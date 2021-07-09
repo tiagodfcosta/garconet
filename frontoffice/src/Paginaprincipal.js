@@ -29,10 +29,7 @@ class PaginaPrincipal extends React.Component {
                 <Link to="/menu"><button>MENU</button></Link>
                 <button>Ver conta atual</button>
                 <button>Fechar a conta</button>
-                <button>Pedir ajuda</button>
-                <p>Quantidade de itens: {this.props.quantidade}</p>
-                <p>Valor total: {this.props.valortotal}</p>
-                
+                <button>Pedir ajuda</button>                
             </div>
             </>
         )
