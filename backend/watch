@@ -1,0 +1,11 @@
+
+> backend@1.0.0 start C:\Users\danidash\Desktop\RunCodeSchool\projetofinal\garconet\backend
+> nodemon index.js
+
+[33m[nodemon] 2.0.9[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+Camões está aqui para te ouvir
+Deseja finalizar o arquivo em lotes (S/N)? Deseja finalizar o arquivo em lotes (S/N)? 
