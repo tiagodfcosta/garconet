@@ -5,6 +5,7 @@ import {
   } from "react-router-dom";
 import Popup from "./popUp";
 
+
 export function MenuPart(props) {
     const {category} = useParams();
   
@@ -19,18 +20,23 @@ export function MenuPart(props) {
    
   //função meio maluca que escreve o produto atual que foi clicado, se algo der ruim, checar aqui
   const togglePopup = async (e) => {
-    setIsOpen(!isOpen);
-    setQuantity(1);   
-    if (isOpen === false) {
-      setSelectProduct(e);      
-    } 
-    await fetch("/escreveProduto", {
-      method: "POST",
-      body: JSON.stringify({"produto": selectedProduct.nome}),
-      headers: {
-        "Content-Type": "application/json"
-        }
-    })
+    setIsOpen(!isOpen);           
+    setSelectProduct(e);      
+  
+    if (selectedProduct !== undefined) {
+      await fetch("/tray", {
+        method: "POST",
+        body: JSON.stringify(
+          {"nome": selectedProduct.nome,
+          "quantidade": quantity,
+          "valor": selectedProduct.preço * quantity         
+          }),
+        headers: {
+          "Content-Type": "application/json"
+          }
+      })
+    }
+    setQuantity(1);
   }
 
   const reduceQuantity = () => {
@@ -68,7 +74,7 @@ export function MenuPart(props) {
         <button onClick={addQuantity}>+</button> <br></br>
         <button onClick={() => { 
           props.handleState(quantity, parseFloat(selectedProduct.preço) * quantity); 
-          props.updateTray(); 
+          //props.updateTray(); 
           togglePopup() }}>Adicionar ao pedido</button>
       </>}
       handleClose={togglePopup}
