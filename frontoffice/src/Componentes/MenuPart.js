@@ -14,15 +14,25 @@ export function MenuPart(props) {
 
     const [selectedProduct, setSelectProduct] = useState("");
 
+    const [quantity, setQuantity] = useState(1);
+
    
  
   const togglePopup = (e) => {
     setIsOpen(!isOpen);
-    
-    setSelectProduct(e)   
+    setQuantity(1);    
+    setSelectProduct(e);   
   }
-  
-  
+
+  const reduceQuantity = () => {
+    if (quantity >=1) {
+      setQuantity(quantity - 1);
+    }
+  }
+
+  const addQuantity = () => {
+      setQuantity(quantity + 1);    
+  } 
   
     useEffect(() => {
       fetch("/category")
@@ -43,6 +53,9 @@ export function MenuPart(props) {
       content={<>
         <b>{selectedProduct.nome}</b>
         <p>Uma bebiba maravilhosa que mata sua sede e engorda um pouquinho.</p>
+        <button onClick={reduceQuantity}>-</button>
+        <p>{quantity}</p>
+        <button onClick={addQuantity}>+</button> <br></br>
         <button>Adicionar ao pedido</button>
       </>}
       handleClose={togglePopup}
