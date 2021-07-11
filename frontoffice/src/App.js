@@ -17,9 +17,16 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       "quantidadedeitens": 0,
-      "valortotal": 0,
-      
+      "valortotal": 0      
     }
+    
+  }
+
+  handleState = (quantity, valor) => {
+    this.setState((state) => ({
+      quantidadedeitens: state.quantidadedeitens + quantity,
+      valortotal: state.valortotal + valor
+    }))
   }
 
   render() {
@@ -35,14 +42,14 @@ export default class App extends React.Component {
           <PaginaPrincipal />
           </Route>
           <Route path="/menu/:category">
-            <MenuPart />
+            <MenuPart handleState={this.handleState}/>
           </Route>
           <Route path="/menu">
             <Menu />
           </Route>
        </Switch>
        <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
-       <p>Valor total: {this.state.valortotal}</p>
+       <p>Valor total: € {this.state.valortotal}</p>
        </div>
      </Router>
     );
