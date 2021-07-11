@@ -31,8 +31,9 @@ export function MenuPart(props) {
   }
 
   const addQuantity = () => {
-      setQuantity(quantity + 1);    
+    setQuantity(quantity + 1);    
   } 
+
   
     useEffect(() => {
       fetch("/category")
@@ -56,7 +57,7 @@ export function MenuPart(props) {
         <button onClick={reduceQuantity}>-</button>
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>
-        <button>Adicionar ao pedido</button>
+        <button onClick={() => props.handleState(quantity, parseFloat(selectedProduct.preço) * quantity)}>Adicionar ao pedido</button>
       </>}
       handleClose={togglePopup}
     />}       
