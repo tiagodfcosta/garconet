@@ -17,11 +17,20 @@ export function MenuPart(props) {
     const [quantity, setQuantity] = useState(1);
 
    
- 
-  const togglePopup = (e) => {
+  //função meio maluca que escreve o produto atual que foi clicado, se algo der ruim, checar aqui
+  const togglePopup = async (e) => {
     setIsOpen(!isOpen);
-    setQuantity(1);    
-    setSelectProduct(e);   
+    setQuantity(1);   
+    if (isOpen === false) {
+      setSelectProduct(e);      
+    } 
+    await fetch("/escreveProduto", {
+      method: "POST",
+      body: JSON.stringify({"produto": selectedProduct.nome}),
+      headers: {
+        "Content-Type": "application/json"
+        }
+    })
   }
 
   const reduceQuantity = () => {
@@ -57,7 +66,10 @@ export function MenuPart(props) {
         <button onClick={reduceQuantity}>-</button>
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>
-        <button onClick={() => props.handleState(quantity, parseFloat(selectedProduct.preço) * quantity)}>Adicionar ao pedido</button>
+        <button onClick={() => { 
+          props.handleState(quantity, parseFloat(selectedProduct.preço) * quantity); 
+          props.updateTray(); 
+          togglePopup() }}>Adicionar ao pedido</button>
       </>}
       handleClose={togglePopup}
     />}       

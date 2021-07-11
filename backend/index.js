@@ -1,5 +1,6 @@
 import express from 'express';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts} from './db.js'
+import * as fs from 'fs/promises';
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -36,6 +37,18 @@ app.get("/category", async (req, res) => {
     } catch(err) {
         console.log("erroooou" + err)
     }
+})
+
+//parcialmente correto
+app.post("/tray", async (req, res) => {    
+    const tray = await updateTray(req.body);
+    res.status(200).send("you did it")    
+})
+
+//teste para escrever o produto atual para tentar ler no app.js e usar valor no updateTray
+app.post("/escreveProduto", async (req, res) => {
+    const produto = await fs.writeFile("./produtoatual.json", JSON.stringify(req.body));
+    res.status(200).send("produto escrito com sucesso")
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
