@@ -11,6 +11,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import fs from "fs";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,16 +25,20 @@ export default class App extends React.Component {
   //parcialmente correto, como enviar um body de algo que está no componente filho?
   //fetch já escreve na base de dados
 
-  //pós almoço, fazer fetch e enviar pro banco de dados o elemento atual
-   updateTray = async () => {
-    await fetch("/tray", {
-      method: "POST",
-      body: JSON.stringify({"name": "nuggeteiros"}),
-      headers: {
-        "Content-Type": "application/json"
-        }
-      })      
-    }
+  //problemas aqui, fazer fetch e enviar pro banco de dados o elemento atual
+  //  updateTray = async () => {
+  //   let produtoAtual = await fetch("/atual")
+  //   .then(res => res.json())
+  //   .then(json => console.log(json))
+
+  //   await fetch("/tray", {
+  //     method: "POST",
+  //     body: JSON.stringify({nome: produtoAtual}),
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //       }
+  //     })      
+  //   }
 
   handleState = (quantity, valor) => {
     this.setState((state) => ({
@@ -56,7 +61,7 @@ export default class App extends React.Component {
           <PaginaPrincipal />
           </Route>
           <Route path="/menu/:category">
-            <MenuPart handleState={this.handleState} updateTray={this.updateTray}/>
+            <MenuPart handleState={this.handleState} /*updateTray={this.updateTray}*//>
           </Route>
           <Route path="/menu">
             <Menu />
