@@ -104,3 +104,10 @@ export async function findProducts() {
     console.log(res);
     return res
 }
+
+//parcialmente correto, verificar como faz o update
+export async function updateTray(name) {
+    const collection = await getCollection(DB_GARCONET, "bandeja");
+    const res = await collection.insertOne(name);
+    return res.insertedId;
+}
