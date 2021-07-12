@@ -107,7 +107,8 @@ export async function findProducts() {
 
 //parcialmente correto, verificar como faz o update
 export async function updateTray(info) {
-    const collection = await getCollection(DB_GARCONET, "bandeja");    
+    const collection = await getCollection(DB_GARCONET, "bandeja"); 
+    console.log(info);   
     const res = await collection.updateOne(
             {nome: info.nome}, {$inc: {quantidade: + info.quantidade, valor: + info.valor}}, {upsert: true}
     );
