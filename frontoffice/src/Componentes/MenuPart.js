@@ -67,7 +67,7 @@ export function MenuPart(props) {
           return <li>
             <img className="produtos" src={e.imagem}/>
             {e.nome}<br/>
-            {e.preco}<br/>
+            {e.preco}€<br/>
             <input type="button" value="Selecionar" onClick={() => togglePopup(e)}/>
           </li>
         })}</ul> 
