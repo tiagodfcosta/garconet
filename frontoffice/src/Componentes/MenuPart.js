@@ -54,7 +54,6 @@ export function MenuPart(props) {
     useEffect(() => {
       fetch("/category")
       .then(products => products.json())
-      //ver com fernando como filtrar
       .then(json => {
         console.log(json.products)
         const prods = json.products.filter(e => e.categoria === category)

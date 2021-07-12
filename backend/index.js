@@ -46,11 +46,11 @@ app.post("/tray", async (req, res) => {
 })
 
 //teste para escrever o produto atual para tentar ler no app.js e usar valor no updateTray
-app.post("/escreveProduto", async (req, res) => {
-    const produto = await fs.writeFile("./produtoatual.json", JSON.stringify(req.body, null, 2));
-    res.status(200).send("produto escrito com sucesso");
+// app.post("/escreveProduto", async (req, res) => {
+//     const produto = await fs.writeFile("./produtoatual.json", JSON.stringify(req.body, null, 2));
+//     res.status(200).send("produto escrito com sucesso");
 
-})
+// })
 
 //no insomnia até funciona
 app.get("/atual", async (req, res) => {
