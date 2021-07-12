@@ -68,7 +68,7 @@ export default class App extends React.Component {
           </Route>
        </Switch>
        <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
-       <p>Valor total: € {this.state.valortotal}</p>
+       <p>Valor total: {this.state.valortotal} €</p>
        </div>
      </Router>
     );
