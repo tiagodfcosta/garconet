@@ -53,6 +53,8 @@ export function MenuPart(props) {
     useEffect(() => {
       fetch("/category")
       .then(products => products.json())
+      //ver com fernando como filtrar
+      //.then(json => json.produtos.filter(e => e.categoria === category))
       .then(json => setProds(json.products))  
     }, [])   
     
@@ -60,22 +62,23 @@ export function MenuPart(props) {
       <div>
         <ul>{prods.map(e => {
           return <li>
+            <img src={e.imagem}/>
             {e.nome}<br/>
-            {e.preço}<br/>
+            {e.preco}<br/>
             <input type="button" value="Selecionar" onClick={() => togglePopup(e)}/>
           </li>
         })}</ul> 
         {isOpen && <Popup
       content={<>
         <b>{selectedProduct.nome}</b>
-        <p>Uma bebiba maravilhosa que mata sua sede e engorda um pouquinho.</p>
+        <p>{selectedProduct.descricao}</p>
         <button onClick={reduceQuantity}>-</button>
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>
         <button onClick={() => { 
           props.handleState(quantity, parseFloat(selectedProduct.preco) * quantity); 
           //props.updateTray(); 
-          togglePopup() }}>Adicionar ao pedido</button>
+          togglePopup() }}>Adicionarr ao pedido</button>
       </>}
       handleClose={togglePopup}
     />}       
