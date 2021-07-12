@@ -13,7 +13,7 @@ export function MenuPart(props) {
     
     const [isOpen, setIsOpen] = useState(false);
 
-    const [selectedProduct, setSelectProduct] = useState("");
+    const [selectedProduct, setSelectProduct] = useState(undefined);
 
     const [quantity, setQuantity] = useState(1);
 
@@ -40,7 +40,7 @@ export function MenuPart(props) {
   }
 
   const reduceQuantity = () => {
-    if (quantity >=1) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   }
