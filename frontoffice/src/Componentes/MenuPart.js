@@ -29,7 +29,7 @@ export function MenuPart(props) {
         body: JSON.stringify(
           {"nome": selectedProduct.nome,
           "quantidade": quantity,
-          "valor": selectedProduct.preço * quantity         
+          "valor": selectedProduct.preco * quantity         
           }),
         headers: {
           "Content-Type": "application/json"
@@ -73,7 +73,7 @@ export function MenuPart(props) {
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>
         <button onClick={() => { 
-          props.handleState(quantity, parseFloat(selectedProduct.preço) * quantity); 
+          props.handleState(quantity, parseFloat(selectedProduct.preco) * quantity); 
           //props.updateTray(); 
           togglePopup() }}>Adicionar ao pedido</button>
       </>}
