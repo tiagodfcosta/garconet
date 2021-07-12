@@ -5,7 +5,7 @@
     "preco" : "1.50",
     "descricao" : "Carregue-se com toda a energia positiva que necessita para o seu dia, com a Coca-Cola Energy, a única bebida energética com o delicioso sabor a Coca-Cola e sem taurina. Com cafeína de fontes naturais, extrato de guaraná e vitaminas B3 e B6.",
     "capacidade": "33 cl",
-    "imagem": "./public/cocacola.jpeg"
+    "imagem": "/cocacola.jpeg"
     },
   {
     "categoria": "bebidas",
@@ -13,7 +13,7 @@
     "preco" : "1.50",
     "descricao" : "Se quiser viver aventuras plenas de sabor, trate de ter uma Fanta Guaraná sempre à mão, uma coisa que vais perceber assim que a provar.",
     "capacidade": "33 cl",
-    "imagem": "./public/fanta.jpeg"
+    "imagem": "/fanta.jpeg"
     },
   {
     "categoria": "bebidas",
@@ -21,7 +21,7 @@
     "preco" : "1.50",
     "descricao" : "Refrigerante com Gás Lima Limão",
     "capacidade": "200 ml",
-    "imagem": "./public/7up.jpeg"
+    "imagem": "/7up.jpeg"
     
     },
   {
@@ -30,7 +30,7 @@
     "preco" : "2.19",
     "descricao" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
     "capacidade": "135 gr",
-    "imagem": "./public/hummus.jpeg"
+    "imagem": "/hummus.jpeg"
     },
   {
     "categoria": "aperitivos",
@@ -38,7 +38,7 @@
     "preco" : "1.45",
     "descricao" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
     "capacidade": "135 gr",
-    "imagem": "./public/3d.jpeg"
+    "imagem": "/3d.jpeg"
     },
   {
     "categoria": "aperitivos",
@@ -46,7 +46,7 @@
     "preco" : "3.5",
     "descricao" : "Recheio: Miolo de camarão (contém crustáceos)(28%), água, leite em pó, margarina (óleos e gorduras vegetais de palma e girassol, água, sal, soro lácteo, emulsionantes (E-322, E-471 e E4-75), lecitina de soja, dextrose, regulador de acidez (E-330), aroma, antioxidantes (E-310 e E-320) e corante (E-160a)), farinha de trigo, tomate, sal, salsa, cebola (contém sulfitos), azeite, especiarias e corante natural. Massa: Água, farinha de trigo, gordura animal de suíno e sal. Panagem: Pão ralado (farinha de trigo, água, levedura, sal, emulsionante (E-472e), antioxidante (E-300), corante (E-170) e enzimas (contém glúten)), água, farinha de trigo, soro lácteo, espessante (E-412), levedante químico (E-500ii), gordura vegetal de girassol e sal.",
     "capacidade": "135 gr",
-    "imagem": "./public/rissois.jpeg"
+    "imagem": "/rissois.jpeg"
     },
   {
     "categoria": "comida",
@@ -54,7 +54,7 @@
     "preco" : "15",
     "descricao" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
     "capacidade": "350 gr",
-    "imagem": "./public/carne_porco.jpeg"
+    "imagem": "/carne_porco.jpeg"
     },
   {
     "categoria": "comida",
@@ -62,7 +62,7 @@
     "preco" : "17",
     "descricao" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
     "capacidade": "800 gr",
-    "imagem": "./public/bacalhau.jpeg"
+    "imagem": "/bacalhau.jpeg"
     },
 
   {
@@ -71,7 +71,7 @@
     "preco" : "17",
     "descricao" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
     "capacidade": "800 gr",
-    "imagem": "./public/arroz.jpeg"
+    "imagem": "/arroz.jpeg"
     },
   
   {
@@ -80,7 +80,7 @@
     "preco" : "2",
     "descricao" : "Deliciosos gelados de morango e nata com mais xarope de morango no topo. Tudo isto num cone de bolacha com o pedacinho de chocolate no final.",
     "capacidade": "90 ml",
-    "imagem": "./public/cornetto.jpeg"
+    "imagem": "/cornetto.jpeg"
     },
   {
     "categoria": "sobremesa",
@@ -88,7 +88,7 @@
     "preco" : "2",
     "descricao" : "Cremoso gelado de baunilha com molho de caramelho no interior coberto com chocolate de leite Magnum e pedaços de amendoim.",
     "capacidade": "90 ml",
-    "imagem": "./public/magnum.jpeg"
+    "imagem": "/magnum.jpeg"
     },
   {
     "categoria": "sobremesa",
@@ -96,6 +96,6 @@
     "preco" : "2",
     "descricao" : "Gelado aromatizado de chocolate com um interior sólido aromatizado de chocolate (13%), cobertura aromatizada de chocolate (19%) e pedaços de biscoito (1,5%).",
     "capacidade": "90 ml",
-    "imagem": "./public/feast.jpeg"
+    "imagem": "/feast.jpeg"
     }
 ]}

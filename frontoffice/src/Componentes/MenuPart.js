@@ -4,6 +4,7 @@ import {
     useParams
   } from "react-router-dom";
 import Popup from "./popUp";
+import "./MenuPart.css"
 
 
 export function MenuPart(props) {
@@ -54,15 +55,18 @@ export function MenuPart(props) {
       fetch("/category")
       .then(products => products.json())
       //ver com fernando como filtrar
-      //.then(json => json.produtos.filter(e => e.categoria === category))
-      .then(json => setProds(json.products))  
+      .then(json => {
+        console.log(json.products)
+        const prods = json.products.filter(e => e.categoria === category)
+        setProds(prods)
+      })  
     }, [])   
     
     return (
       <div>
         <ul>{prods.map(e => {
           return <li>
-            <img src={e.imagem}/>
+            <img className="produtos" src={e.imagem}/>
             {e.nome}<br/>
             {e.preco}<br/>
             <input type="button" value="Selecionar" onClick={() => togglePopup(e)}/>
@@ -72,6 +76,7 @@ export function MenuPart(props) {
       content={<>
         <b>{selectedProduct.nome}</b>
         <p>{selectedProduct.descricao}</p>
+        <img className="produtos" src={selectedProduct.imagem}/> <br/>
         <button onClick={reduceQuantity}>-</button>
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>
