@@ -105,7 +105,6 @@ export async function findProducts() {
     return res
 }
 
-//parcialmente correto, verificar como faz o update
 export async function updateTray(info) {
     const collection = await getCollection(DB_GARCONET, "bandeja");
 
@@ -116,12 +115,14 @@ export async function updateTray(info) {
         await collection.insertOne({
             aberta: true,
             dataCriacao: new Date(),
-            artigos: []
+            artigos: [],
+            quantidadeitens: 0,
+            valortotal: 0
         })
         //a tray se torna a bandeja que foi criada
         tray = await collection.findOne({ aberta: true })
     }
-
+    //checa se o artigo existe, se sim, atualiza a quantidade e o valor, se não, manda tudo pra dentro
     let item = tray.artigos.find((a) => a.nome === info.nome)
     if (item) {
         item.quantidade += info.quantidade
@@ -129,7 +130,7 @@ export async function updateTray(info) {
     } else {
         tray.artigos.push(info)
     }
-
+    //faz um update na collection com as mudanças acima
     await collection.updateOne({
         _id: tray._id
     }, {
@@ -138,9 +139,16 @@ export async function updateTray(info) {
         }
     })
 
-    // const res1 = await collection.findOne({aberta: true});
-    // const res = await collection.updateOne(
-    //         {nome: info.nome}, {$inc: {quantidade: + info.quantidade, valor: + info.valor}}, {upsert: true}
-    // );
     return tray;
+}
+
+export async function createBill() {
+    //checar se existe conta aberta
+    //se não existir, criar uma com aberta: true, data de criação e bandejas: []
+    //bill = await collection.findOne({aberta: true})
+    //let a collection de bandejas
+    //adicionar a bandeja na conta
+    //por fim, atualizar a conta
+    //apagar a bandeja
+    //component did update - quantidade e valor serem os valores da conta
 }

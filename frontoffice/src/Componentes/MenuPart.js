@@ -70,7 +70,7 @@ export function MenuPart(props) {
             {e.preco}€<br/>
             <input type="button" value="Selecionar" onClick={() => togglePopup(e)}/>
           </li>
-        })}</ul> 
+        })}</ul>
         {isOpen && <Popup
       content={<>
         <b>{selectedProduct.nome}</b>
@@ -82,7 +82,7 @@ export function MenuPart(props) {
         <button onClick={() => { 
           props.handleState(quantity, parseFloat(selectedProduct.preco) * quantity); 
           //props.updateTray(); 
-          togglePopup() }}>Adicionarr ao pedido</button>
+          togglePopup() }}>Adicionar ao pedido</button>
       </>}
       handleClose={togglePopup}
     />}       
