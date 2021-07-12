@@ -45,17 +45,10 @@ app.post("/tray", async (req, res) => {
     res.status(200).send("you did it")    
 })
 
-//teste para escrever o produto atual para tentar ler no app.js e usar valor no updateTray
-// app.post("/escreveProduto", async (req, res) => {
-//     const produto = await fs.writeFile("./produtoatual.json", JSON.stringify(req.body, null, 2));
-//     res.status(200).send("produto escrito com sucesso");
-
-// })
-
-//no insomnia até funciona
-app.get("/atual", async (req, res) => {
-    const produto = await fs.readFile("./produtoatual.json");
-    res.status(200).send(JSON.parse(produto))
+app.post("/order", async (req, res) => {
+    //ver se há conta
+    //se não, criar
+    //se sim, adicionar bandeja à conta
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))

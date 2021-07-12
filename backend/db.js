@@ -115,7 +115,9 @@ export async function updateTray(info) {
         await collection.insertOne({
             aberta: true,
             dataCriacao: new Date(),
-            artigos: []
+            artigos: [],
+            quantidadeitens: 0,
+            valortotal: 0
         })
         //a tray se torna a bandeja que foi criada
         tray = await collection.findOne({ aberta: true })
@@ -138,4 +140,15 @@ export async function updateTray(info) {
     })
 
     return tray;
+}
+
+export async function createBill() {
+    //checar se existe conta aberta
+    //se não existir, criar uma com aberta: true, data de criação e bandejas: []
+    //bill = await collection.findOne({aberta: true})
+    //let a collection de bandejas
+    //adicionar a bandeja na conta
+    //por fim, atualizar a conta
+    //apagar a bandeja
+    //component did update - quantidade e valor serem os valores da conta
 }
