@@ -1,6 +1,6 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -19,10 +19,6 @@ app.post("/auth", async (req, res) => {
     }
 })
 
-// vai verificar o utilizador existente
-// app.get("/user", verifyUser, async (req, res) => {
-//     res.status(200).json({ user: req.user.username })
-// })
 
 // criação de user na base de dados
 app.post("/user", async (req, res) => {
@@ -45,15 +41,18 @@ app.post("/tray", async (req, res) => {
 })
 
 app.post("/order", async (req, res) => {
-    //usar o req.body para atualizar a quantidade e o valor
-    //ver se há conta
-    //se não, criar
-    //se sim, adicionar bandeja à conta
+    const bill = await createBill()
+    res.status(200).send("conta criada bebe")
 })
 
 app.get("/quantevalor", async (req, res) => {
     const tray = await findTray()
     res.status(200).send(tray) 
+})
+
+app.get("/valordaconta", async (req, res) => {
+    const bill = await getBillAmount()
+    res.status(200).send("joaquim")
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))

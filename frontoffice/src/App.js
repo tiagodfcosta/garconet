@@ -18,29 +18,17 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       "quantidadedeitens": 0,
-      "valortotal": 0      
+      "valortotal": 0,
+      "valoradicionado": 0    
     }    
   }
 
-  //parcialmente correto, como enviar um body de algo que está no componente filho?
-  //fetch já escreve na base de dados
-
-  //problemas aqui, fazer fetch e enviar pro banco de dados o elemento atual
-  //  updateTray = async () => {
-  //   let produtoAtual = await fetch("/atual")
-  //   .then(res => res.json())
-  //   .then(json => console.log(json))
-
-  //   await fetch("/tray", {
-  //     method: "POST",
-  //     body: JSON.stringify({nome: produtoAtual}),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //       }
-  //     })      
-  //   }
+  getBillAmount() {
+    fetch("/valordaconta")
+  }
 
   handleState = (quantity, valor) => {
+    let billAmount = this.getBillAmount()
     this.setState((state) => ({
       quantidadedeitens: state.quantidadedeitens + quantity,
       valortotal: state.valortotal + valor
@@ -77,7 +65,7 @@ export default class App extends React.Component {
           </Route>
        </Switch>
        <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
-       <p>Valor total: {this.state.valortotal} €</p>
+       <p>Valor total: {this.state.valoradicionado} € + {this.state.valortotal} €</p>
        </div>
      </Router>
     );
