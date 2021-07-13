@@ -25,10 +25,22 @@ export default class App extends React.Component {
 
   getBillAmount() {
     fetch("/valordaconta")
+    .then(res => res.json())
+    .then(json => this.setState((state) => ({
+      valoradicionado: json
+    })))
+    console.log(this.state.valoradicionado)
   }
 
+  stateToZero() {
+    this.setState((state) => ({
+      valortotal: 0
+    }))
+  }
+  
+
   handleState = (quantity, valor) => {
-    let billAmount = this.getBillAmount()
+    
     this.setState((state) => ({
       quantidadedeitens: state.quantidadedeitens + quantity,
       valortotal: state.valortotal + valor
@@ -61,11 +73,11 @@ export default class App extends React.Component {
             <MenuPart handleState={this.handleState} />
           </Route>
           <Route path="/menu">
-            <Menu quantidadeitens={this.state.quantidadedeitens} valortotal={this.state.valortotal}/>
+            <Menu quantidadeitens={this.state.quantidadedeitens} valortotal={this.state.valortotal} adicionarvalor={() => this.getBillAmount()} stateToZero={() => this.stateToZero()} />
           </Route>
        </Switch>
        <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
-       <p>Valor total: {this.state.valoradicionado} € + {this.state.valortotal} €</p>
+       <p>Valor total: {this.state.valoradicionado.toFixed(2)} € + {this.state.valortotal.toFixed(2)} €</p>
        </div>
      </Router>
     );

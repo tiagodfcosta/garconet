@@ -52,7 +52,7 @@ app.get("/quantevalor", async (req, res) => {
 
 app.get("/valordaconta", async (req, res) => {
     const bill = await getBillAmount()
-    res.status(200).send("joaquim")
+    res.status(200).json(bill)
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
