@@ -30,7 +30,7 @@ export function MenuPart(props) {
         body: JSON.stringify(
           {"nome": selectedProduct.nome,
           "quantidade": quantity,
-          "valor": selectedProduct.preco * quantity         
+          "valor": selectedProduct.preco * quantity            
           }),
         headers: {
           "Content-Type": "application/json"

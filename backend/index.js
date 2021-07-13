@@ -1,6 +1,6 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -39,16 +39,21 @@ app.get("/category", async (req, res) => {
     }
 })
 
-//parcialmente correto
 app.post("/tray", async (req, res) => {    
     const tray = await updateTray(req.body);
     res.status(200).send("you did it")    
 })
 
 app.post("/order", async (req, res) => {
+    //usar o req.body para atualizar a quantidade e o valor
     //ver se há conta
     //se não, criar
     //se sim, adicionar bandeja à conta
+})
+
+app.get("/quantevalor", async (req, res) => {
+    const tray = await findTray()
+    res.status(200).send(tray) 
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
