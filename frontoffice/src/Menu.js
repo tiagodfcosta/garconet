@@ -2,6 +2,7 @@ import React from "react";
 import {
     Link,
   } from "react-router-dom";
+import "./Menu.css";
   
 export class Menu extends React.Component{
     constructor(props){
@@ -16,6 +17,7 @@ export class Menu extends React.Component{
         .then(res => this.props.adicionarvalor())
         .then(res => this.props.stateToZero())
     }
+    
 
     render(){
         return (
@@ -27,7 +29,8 @@ export class Menu extends React.Component{
                     <Link to="/menu/sobremesa"><button >Sobremesa</button></Link>            
                 </div>
                 <div>
-                    <button onClick={() => this.handleOrder()}>Fazer pedido</button>  
+                    <button className={this.props.valortotal === 0 ? "disable" : "enable"} 
+                    onClick={() => this.handleOrder()}>Submeter pedido</button>  
                 </div>                
             </div>
         )

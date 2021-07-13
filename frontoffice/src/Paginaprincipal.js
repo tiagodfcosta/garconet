@@ -6,14 +6,15 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import ContaAtual from "./Componentes/Contaatual";
+import ContaAtual from "./Componentes/Contaatual.js";
 
 
 class PaginaPrincipal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            conta: ""
         }
     }
 
@@ -21,7 +22,23 @@ class PaginaPrincipal extends React.Component {
         this.setState((state) => ({
             isOpen: !(state.isOpen)
         }));
-    }    
+    }
+
+    getBill() {
+        //fetch para buscar conta
+        fetch("/verconta")
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                this.setState((state) => ({
+                    conta: JSON.stringify(res)
+                }))
+            })
+    }
+
+    componentDidMount() {
+        this.getBill()
+    }
 
     render() {
         return (
@@ -39,9 +56,9 @@ class PaginaPrincipal extends React.Component {
                     <button>Pedir ajuda</button>
                     {this.state.isOpen && <ContaAtual
                         content={<>
-                            <b>Aqui ficará a bandeja</b>
-                            <p>Uma bela bandeja.</p>
-                                                     
+                            <b>Os seus pedidos</b>
+                            <p>{this.state.conta}</p>
+
                         </>}
                         handleClose={() => this.togglePopup()}
                     />}

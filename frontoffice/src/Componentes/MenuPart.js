@@ -40,6 +40,12 @@ export function MenuPart(props) {
     setQuantity(1);
   }
 
+  const togglePopupX = async (e) => {
+    setIsOpen(!isOpen);           
+    setSelectProduct(e);   
+    setQuantity(1);
+  }
+
   const reduceQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -83,7 +89,7 @@ export function MenuPart(props) {
           //props.updateTray(); 
           togglePopup() }}>Adicionar ao pedido</button>
       </>}
-      handleClose={togglePopup}
+      handleClose={togglePopupX}
     />}       
       </div>
     )

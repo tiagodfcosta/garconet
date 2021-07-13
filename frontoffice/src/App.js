@@ -73,7 +73,11 @@ export default class App extends React.Component {
             <MenuPart handleState={this.handleState} />
           </Route>
           <Route path="/menu">
-            <Menu quantidadeitens={this.state.quantidadedeitens} valortotal={this.state.valortotal} adicionarvalor={() => this.getBillAmount()} stateToZero={() => this.stateToZero()} />
+            <Menu 
+            quantidadeitens={this.state.quantidadedeitens} 
+            valortotal={this.state.valortotal} 
+            adicionarvalor={() => this.getBillAmount()} 
+            stateToZero={() => this.stateToZero()} />
           </Route>
        </Switch>
        <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
