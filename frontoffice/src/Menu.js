@@ -11,11 +11,7 @@ export class Menu extends React.Component{
     //checar se falta algo depois :)
     handleOrder(){
         fetch("/order", {
-            method: "POST",
-            body: {"quantidade de itens":this.props.quantidadeitens, "valor total": this.props.valortotal},
-            headers: {
-                "Content-Type": "application/json"
-            }
+            method: "POST"
         })
     }
 
@@ -29,7 +25,7 @@ export class Menu extends React.Component{
                     <Link to="/menu/sobremesa"><button >Sobremesa</button></Link>            
                 </div>
                 <div>
-                    <button onClick={() => this.handleOrder}>Fazer pedido</button>  
+                    <button onClick={() => this.handleOrder()}>Fazer pedido</button>  
                 </div>                
             </div>
         )
