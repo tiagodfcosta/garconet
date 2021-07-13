@@ -55,7 +55,6 @@ export function MenuPart(props) {
       fetch("/category")
       .then(products => products.json())
       .then(json => {
-        console.log(json.products)
         const prods = json.products.filter(e => e.categoria === category)
         setProds(prods)
       })  

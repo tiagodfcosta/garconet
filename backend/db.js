@@ -120,10 +120,15 @@ export async function findTray() {
 export async function getBillAmount() {
     const collection = await getCollection(DB_GARCONET, "conta");
     const bill = await collection.findOne({ aberta: true })
+    let valores;
     if (bill) {
-        let valores = tray.artigos.reduce((acc, curr)=> {
-            return {quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor}
-        }, {quantidade: 0, valor: 0})
+        valores = bill.bandeja.reduce((acc, curr)=> {
+            return acc + curr.artigos.reduce((acc, curr) => {
+                return acc + curr.valor
+            }, 0)
+        }, 0)
+        
+
         
         return valores;
     }    

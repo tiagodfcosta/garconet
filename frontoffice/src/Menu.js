@@ -6,13 +6,15 @@ import {
 export class Menu extends React.Component{
     constructor(props){
         super(props);
-    }
+    }    
 
     //checar se falta algo depois :)
-    handleOrder(){
+    handleOrder(props){
         fetch("/order", {
             method: "POST"
         })
+        .then(res => this.props.adicionarvalor())
+        .then(res => this.props.stateToZero())
     }
 
     render(){
