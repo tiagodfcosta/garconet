@@ -105,6 +105,19 @@ export async function findProducts() {
     return res
 }
 
+export async function findTray() {
+    const collection = await getCollection(DB_GARCONET, "bandeja");
+    const tray = await collection.findOne({ aberta: true })
+    if (tray) {
+        let valores = tray.artigos.reduce((acc, curr)=> {
+            return {quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor}
+        }, {quantidade: 0, valor: 0})
+        
+        return valores;
+    }
+    
+}
+
 export async function updateTray(info) {
     const collection = await getCollection(DB_GARCONET, "bandeja");
 
@@ -116,8 +129,6 @@ export async function updateTray(info) {
             aberta: true,
             dataCriacao: new Date(),
             artigos: [],
-            quantidadeitens: 0,
-            valortotal: 0
         })
         //a tray se torna a bandeja que foi criada
         tray = await collection.findOne({ aberta: true })
@@ -127,6 +138,7 @@ export async function updateTray(info) {
     if (item) {
         item.quantidade += info.quantidade
         item.valor += info.valor
+        
     } else {
         tray.artigos.push(info)
     }
@@ -135,7 +147,8 @@ export async function updateTray(info) {
         _id: tray._id
     }, {
         $set: {
-            artigos: tray.artigos
+            artigos: tray.artigos,
+            
         }
     })
 

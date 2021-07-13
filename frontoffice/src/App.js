@@ -48,6 +48,15 @@ export default class App extends React.Component {
    
   }
 
+  componentDidMount() {
+    fetch("/quantevalor")
+    .then(res => res.json())
+    .then(json => this.setState((state) => ({
+      quantidadedeitens: json.quantidade,
+      valortotal: json.valor
+    })))
+  }
+
   render() {
     return (
      <Router>
@@ -61,7 +70,7 @@ export default class App extends React.Component {
           <PaginaPrincipal />
           </Route>
           <Route path="/menu/:category">
-            <MenuPart handleState={this.handleState} /*updateTray={this.updateTray}*//>
+            <MenuPart handleState={this.handleState} />
           </Route>
           <Route path="/menu">
             <Menu quantidadeitens={this.state.quantidadedeitens} valortotal={this.state.valortotal}/>
