@@ -1,6 +1,6 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount, checkBill, findBill} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount, checkBill} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -51,11 +51,11 @@ app.get("/quantevalor", async (req, res) => {
 })
 
 //checar
-app.get("/quantevalorsomado", async (req, res) => {
-    const bill = await findBill()
-    res.status(200).json(bill) 
+// app.get("/quantevalorsomado", async (req, res) => {
+//     const bill = await findBill()
+//     res.status(200).json(bill) 
     
-})
+// })
 
 app.get("/valordaconta", async (req, res) => {
     const bill = await getBillAmount()

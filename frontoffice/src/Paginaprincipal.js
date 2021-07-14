@@ -78,7 +78,7 @@ class PaginaPrincipal extends React.Component {
                                 )}
                                 )}
                             </ol>
-                            <p>Valor total: {this.props.valoradicionado} €</p>
+                            <p>Valor total: {this.props.valoradicionado.toFixed(2)} €</p>
                         </>}
                         handleClose={() => this.togglePopup()}
                     />}
