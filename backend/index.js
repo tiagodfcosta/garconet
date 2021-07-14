@@ -52,7 +52,7 @@ app.get("/quantevalor", async (req, res) => {
 
 app.get("/quantevalorsomado", async (req, res) => {
     const bill = await findBill()
-    res.status(200).send(bill) 
+    res.status(200).json(bill) 
 })
 
 app.get("/valordaconta", async (req, res) => {

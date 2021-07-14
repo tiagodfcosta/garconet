@@ -110,9 +110,12 @@ export async function findBill() {
     const bill = await getCollection(DB_GARCONET, "conta");
     const openBill = await bill.findOne({ aberta: true });
     if(openBill) {
+        let valoresMapeado
         let valores = openBill.bandeja.reduce((acc, curr) => {
-            return { valor: acc.valor + curr.artigos.reduce((acc, curr) => { acc + curr.valor }, 0)}
-        }, { valor: 0 })
+            valoresMapeado = curr.artigos.reduce((acc, curr) => acc + curr.artigos.valor)           
+            const valorTotal = acc + valoresMapeado.valor
+            return valorTotal
+        },  0 )       
 
         return valores;
     } 
