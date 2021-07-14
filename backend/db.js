@@ -106,16 +106,29 @@ export async function findProducts() {
     return res
 }
 
-export async function findTray() {
-    const collection = await getCollection(DB_GARCONET, "bandeja");
-    const tray = await collection.findOne({ aberta: true })
-    if (tray) {
-        let valores = tray.artigos.reduce((acc, curr) => {
-            return { quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor }
-        }, { quantidade: 0, valor: 0 })
+export async function findBill() {
+    const bill = await getCollection(DB_GARCONET, "conta");
+    const openBill = await bill.findOne({ aberta: true });
+    if(openBill) {
+        let valores = openBill.bandeja.reduce((acc, curr) => {
+            return { valor: acc.valor + curr.artigos.reduce((acc, curr) => { acc + curr.valor }, 0)}
+        }, { valor: 0 })
 
         return valores;
-    }
+    } 
+}
+
+export async function findTray() {
+    
+        const collection = await getCollection(DB_GARCONET, "bandeja");
+        const tray = await collection.findOne({ aberta: true })
+        if (tray) {
+            let valores = tray.artigos.reduce((acc, curr) => {
+                return { quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor }
+            }, { quantidade: 0, valor: 0 })
+    
+            return valores;
+        }
 }
 
 export async function getBillAmount() {

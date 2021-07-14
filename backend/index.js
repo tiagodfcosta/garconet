@@ -1,6 +1,6 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount, checkBill} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount, checkBill, findBill} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -50,6 +50,11 @@ app.get("/quantevalor", async (req, res) => {
     res.status(200).send(tray) 
 })
 
+app.get("/quantevalorsomado", async (req, res) => {
+    const bill = await findBill()
+    res.status(200).send(bill) 
+})
+
 app.get("/valordaconta", async (req, res) => {
     const bill = await getBillAmount()
     res.status(200).json(bill)
@@ -57,7 +62,10 @@ app.get("/valordaconta", async (req, res) => {
 
 app.get("/verconta", async(req, res) => {
     const bill = await checkBill()
-    res.status(200).json(bill)
+    if(bill) {
+
+        res.status(200).json(bill)
+    }
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))

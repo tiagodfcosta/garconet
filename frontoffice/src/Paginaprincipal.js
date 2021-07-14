@@ -7,6 +7,7 @@ import {
     Link
 } from "react-router-dom";
 import ContaAtual from "./Componentes/Contaatual.js";
+import { format, compareAsc } from 'date-fns'
 
 
 class PaginaPrincipal extends React.Component {
@@ -14,7 +15,7 @@ class PaginaPrincipal extends React.Component {
         super(props);
         this.state = {
             isOpen: false,
-            conta: ""
+            conta: []
         }
     }
 
@@ -30,10 +31,15 @@ class PaginaPrincipal extends React.Component {
             .then(res => res.json())
             .then(res => {
                 console.log(res)
-                this.setState((state) => ({
-                    conta: JSON.stringify(res)
-                }))
-            })
+                
+                    this.setState((state) => ({
+                        conta: res.bandeja.map((e) => ({
+                            "datadecriacao": e.dataCriacao,
+                            "produtos": e.artigos
+                        }))
+                    }))
+                
+            })          
     }
 
     componentDidMount() {
@@ -57,8 +63,22 @@ class PaginaPrincipal extends React.Component {
                     {this.state.isOpen && <ContaAtual
                         content={<>
                             <b>Os seus pedidos</b>
-                            <p>{this.state.conta}</p>
-
+                            
+                            <ol>
+                                {this.state.conta.map((e) => {
+                                return (
+                                    <li>
+                                        <p>Pedido: {
+                                            format(new Date(e.datadecriacao), 'dd/MM/yyyy HH:mm')
+                                        }</p>
+                                        <p>{(
+                                            e.produtos.map(e => <p>{e.quantidade} x {e.nome} - {e.valor} €</p>) 
+                                        )}</p>
+                                    </li>
+                                )}
+                                )}
+                            </ol>
+                            <p>Valor total: {this.props.valoradicionado} €</p>
                         </>}
                         handleClose={() => this.togglePopup()}
                     />}
@@ -67,7 +87,5 @@ class PaginaPrincipal extends React.Component {
         )
     }
 }
-
-
 
 export default PaginaPrincipal;
