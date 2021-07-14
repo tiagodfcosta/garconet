@@ -48,13 +48,18 @@ export default class App extends React.Component {
    
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     fetch("/quantevalor")
     .then(res => res.json())
     .then(json => this.setState((state) => ({
       quantidadedeitens: json.quantidade,
       valortotal: json.valor
     })))
+    // fetch("/quantevalorsomado")
+    // .then(res => res.json())
+    // .then(json => this.setState((state) => ({
+    //   valoradicionado: json.valor
+    // })))
   }
 
   render() {
@@ -67,7 +72,7 @@ export default class App extends React.Component {
        </nav>
        <Switch>
           <Route exact path="/">
-          <PaginaPrincipal />
+          <PaginaPrincipal valoradicionado={this.state.valoradicionado}/>
           </Route>
           <Route path="/menu/:category">
             <MenuPart handleState={this.handleState} />
