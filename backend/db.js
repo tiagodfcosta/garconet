@@ -105,15 +105,17 @@ export async function findProducts() {
     console.log(res);
     return res
 }
-
+//função com problema
 export async function findBill() {
     const bill = await getCollection(DB_GARCONET, "conta");
     const openBill = await bill.findOne({ aberta: true });
     if(openBill) {
         let valoresMapeado
         let valores = openBill.bandeja.reduce((acc, curr) => {
-            valoresMapeado = curr.artigos.reduce((acc, curr) => acc + curr.artigos.valor)           
+            valoresMapeado = curr.artigos.reduce((acc, curr) => acc + curr.valor)  
+                  
             const valorTotal = acc + valoresMapeado.valor
+            
             return valorTotal
         },  0 )       
 

@@ -50,9 +50,11 @@ app.get("/quantevalor", async (req, res) => {
     res.status(200).send(tray) 
 })
 
+//checar
 app.get("/quantevalorsomado", async (req, res) => {
     const bill = await findBill()
     res.status(200).json(bill) 
+    
 })
 
 app.get("/valordaconta", async (req, res) => {

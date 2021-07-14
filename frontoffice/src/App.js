@@ -34,7 +34,8 @@ export default class App extends React.Component {
 
   stateToZero() {
     this.setState((state) => ({
-      valortotal: 0
+      valortotal: 0,
+      quantidadedeitens: 0
     }))
   }
   
@@ -55,11 +56,14 @@ export default class App extends React.Component {
       quantidadedeitens: json.quantidade,
       valortotal: json.valor
     })))
-    // fetch("/quantevalorsomado")
-    // .then(res => res.json())
-    // .then(json => this.setState((state) => ({
-    //   valoradicionado: json.valor
-    // })))
+    // if (this.state.valoradicionado) {
+    //   fetch("/quantevalorsomado")
+    //   .then(res => res.json())
+    //   .then(json => this.setState((state) => ({
+    //     valoradicionado: json
+    //   })))
+
+    // }
   }
 
   render() {
