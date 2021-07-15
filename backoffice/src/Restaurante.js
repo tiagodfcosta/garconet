@@ -1,6 +1,6 @@
 import React from "react"
 
-class Restaurant extends React.Component {
+class Restaurante extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -11,4 +11,4 @@ class Restaurant extends React.Component {
     }
 }
 
-export default Restaurant
+export default Restaurante
