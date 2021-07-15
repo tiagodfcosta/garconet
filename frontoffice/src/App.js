@@ -47,19 +47,19 @@ export default class App extends React.Component {
       valortotal: state.valortotal + valor
     }))
    
-  }
+  }  
   
-  
-
+  //sobrecarrega chamar isso sempre?
   componentDidMount() {
-    fetch("/quantevalor")
-    .then(res => res.json())
-    .then(json => this.setState((state) => ({
-      quantidadedeitens: json.quantidade,
-      valortotal: json.valor,
-      valoradicionado: json.valortotal
-    })))
-    
+    setInterval(() => {
+      fetch("/quantevalor")
+      .then(res => res.json())
+      .then(json => this.setState((state) => ({
+        quantidadedeitens: json.quantidade,
+        valortotal: json.valor,
+        valoradicionado: json.valortotal
+      })))      
+    }, 300);    
   }
 
   render() {

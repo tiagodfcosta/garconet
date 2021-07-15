@@ -25,7 +25,7 @@ class Restaurante extends React.Component {
         this.findTrays()
         setInterval(() => {
             this.findTrays()
-        }, 5000)
+        }, 1000)
     }
 
     togglePopupX = async (e) => {
@@ -46,11 +46,16 @@ class Restaurante extends React.Component {
                 "Content-Type": "application/json"
             }
         }) 
-        console.log(e._id, b._id, a.nome)        
     }
 
-    increment() {
-
+    increment(e, b, a) {
+        fetch("/increment", {
+            method: "POST",
+            body: JSON.stringify({idconta: e._id, idbandeja: b._id, nome: a.nome}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }) 
     }
 
 
@@ -73,8 +78,8 @@ class Restaurante extends React.Component {
                                         <p>
                                             <button onClick={() => this.decrement(e, b, a)}>-</button>
                                             {a.quantidade}
-                                            <button onClick={() => this.increment()}>+</button>
-                                             x {a.nome} valor: {a.valor}
+                                            <button onClick={() => this.increment(e, b, a)}>+</button>
+                                             x {a.nome} 
                                         </p>
                                     )
                                     )))}</b>
