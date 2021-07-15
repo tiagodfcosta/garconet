@@ -25,7 +25,7 @@ class Restaurante extends React.Component {
         this.findTrays()
         setInterval(() => {
             this.findTrays()
-        }, 5000)
+        }, 300)
     }
 
     togglePopupX = async (e) => {
