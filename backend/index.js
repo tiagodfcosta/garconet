@@ -1,7 +1,7 @@
 import express from 'express';
 import * as fs from 'fs/promises';
 import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, 
-    updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays, decrementQuantity} from './db.js'
+    updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays, decrementQuantity, incrementQuantity} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -78,6 +78,11 @@ app.get("/opentrays", async (req, res) => {
 
 app.post("/decrement", async (req, res) => {
     const trays = await decrementQuantity(req.body)
+    res.status(200).send("foi!")
+})
+
+app.post("/increment", async (req, res) => {
+    const trays = await incrementQuantity(req.body)
     res.status(200).send("foi!")
 })
 

@@ -20,6 +20,7 @@ class PaginaPrincipal extends React.Component {
     }
 
     togglePopup = () => {
+        this.getBill()
         this.setState((state) => ({
             isOpen: !(state.isOpen)
         }));
@@ -72,7 +73,7 @@ class PaginaPrincipal extends React.Component {
                                             format(new Date(e.datadecriacao), 'dd/MM/yyyy HH:mm')
                                         }</p>
                                         <p>{(
-                                            e.produtos.map(e => <p>{e.quantidade} x {e.nome} - {e.valor} €</p>) 
+                                            e.produtos.map(e => <p>{e.quantidade} x {e.nome} - {e.valor.toFixed(2)} €</p>) 
                                         )}</p>
                                     </li>
                                 )}

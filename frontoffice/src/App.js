@@ -47,19 +47,18 @@ export default class App extends React.Component {
       valortotal: state.valortotal + valor
     }))
    
-  }
+  }  
   
-  
-
   componentDidMount() {
-    fetch("/quantevalor")
-    .then(res => res.json())
-    .then(json => this.setState((state) => ({
-      quantidadedeitens: json.quantidade,
-      valortotal: json.valor,
-      valoradicionado: json.valortotal
-    })))
-    
+    setInterval(() => {
+      fetch("/quantevalor")
+      .then(res => res.json())
+      .then(json => this.setState((state) => ({
+        quantidadedeitens: json.quantidade,
+        valortotal: json.valor,
+        valoradicionado: json.valortotal
+      })))      
+    }, 1000);    
   }
 
   render() {
