@@ -49,7 +49,6 @@ export default class App extends React.Component {
    
   }  
   
-  //sobrecarrega chamar isso sempre?
   componentDidMount() {
     setInterval(() => {
       fetch("/quantevalor")
@@ -59,7 +58,7 @@ export default class App extends React.Component {
         valortotal: json.valor,
         valoradicionado: json.valortotal
       })))      
-    }, 300);    
+    }, 1000);    
   }
 
   render() {

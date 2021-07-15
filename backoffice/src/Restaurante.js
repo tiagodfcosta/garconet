@@ -78,7 +78,7 @@ class Restaurante extends React.Component {
                                         <p>
                                             <button onClick={() => this.decrement(e, b, a)}>-</button>
                                             {a.quantidade}
-                                            <button onClick={() => this.increment(e, b, a)}>+</button>
+                                            {/* <button onClick={() => this.increment(e, b, a)}>+</button> */}
                                              x {a.nome} 
                                         </p>
                                     )
