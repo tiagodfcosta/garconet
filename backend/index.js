@@ -1,6 +1,7 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount, checkBill} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, 
+    updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -68,6 +69,16 @@ app.get("/verconta", async(req, res) => {
 
         res.status(200).json(bill)
     }
+})
+
+app.get("/opentrays", async (req, res) => {
+    const trays = await getOpenTrays()
+    res.status(200).json(trays)
+})
+
+app.post("/decrement", async (req, res) => {
+    const trays = await decrementQuantity(req.body)
+    res.status(200).json(trays)
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))

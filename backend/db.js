@@ -255,3 +255,16 @@ export async function findTray() {
 
         return bill
     }
+
+    export async function getOpenTrays() {
+        const collection = await getCollection(DB_GARCONET, "conta");
+        //retornar todas as collections no find()
+        const bill = await collection.find({ aberta: true }).toArray()
+
+        return bill
+    }
+
+    export async function decrementQuantity(nome) {
+        const collection = await getCollection(DB_GARCONET, "conta")
+        const tray = await updateOne({})
+    }
