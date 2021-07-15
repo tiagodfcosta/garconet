@@ -38,15 +38,15 @@ class Restaurante extends React.Component {
 
     }
 
-    decrement(b, a) {
-        // fetch("/decrement", {
-        //     method: "POST",
-        //     body: {nome: nome},
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     }
-        // }) 
-        console.log(b, a)
+    decrement(e, b, a) {
+        fetch("/decrement", {
+            method: "POST",
+            body: JSON.stringify({idconta: e._id, idbandeja: b._id, nome: a.nome}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }) 
+        console.log(e._id, b._id, a.nome)        
     }
 
     increment() {
@@ -72,9 +72,9 @@ class Restaurante extends React.Component {
                                     .map(a => (
                                         <p>
                                             <button onClick={() => this.decrement(e, b, a)}>-</button>
-                                            {e.quantidade}
+                                            {a.quantidade}
                                             <button onClick={() => this.increment()}>+</button>
-                                             x {e.nome} valor: {e.valor}
+                                             x {a.nome} valor: {a.valor}
                                         </p>
                                     )
                                     )))}</b>

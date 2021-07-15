@@ -264,7 +264,21 @@ export async function findTray() {
         return bill
     }
 
-    export async function decrementQuantity(nome) {
+    export async function decrementQuantity(body) {
         const collection = await getCollection(DB_GARCONET, "conta")
-        const tray = await updateOne({})
-    }
+        const billFound = await collection.findOne({_id: mongodb.ObjectId(body.idconta)})
+        console.log(billFound)
+        const trayFound = await billFound.bandeja.find(b => b._id.toHexString() === body.idbandeja)
+        console.log(trayFound)
+        const itemFound = trayFound.artigos.find(a => a.nome === body.nome)
+        itemFound.quantidade -= 1
+        const trayUpdated = await collection.updateOne(
+            {_id: mongodb.ObjectId(body.idconta)}
+            , {
+                $set: {
+                    bandeja: billFound.bandeja
+                }
+        })
+        return trayUpdated
+    }  
+    
