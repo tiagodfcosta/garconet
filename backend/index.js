@@ -1,6 +1,6 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, 
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, deliverOrder,
     updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays, decrementQuantity, incrementQuantity} from './db.js'
 
 const PORT = 3001
@@ -84,6 +84,11 @@ app.post("/decrement", async (req, res) => {
 app.post("/increment", async (req, res) => {
     const trays = await incrementQuantity(req.body)
     res.status(200).send("foi!")
+})
+
+app.post("/deliver", async (req, res) => {
+    const deliver = await deliverOrder(req.body);
+    res.sendStatus(200)
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
