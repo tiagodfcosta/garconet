@@ -48,7 +48,7 @@ app.post("/order", async (req, res) => {
     res.status(200).send("conta criada bebe")
 })
 
-app.get("/quantevalor", async (req, res) => {
+app.get("/qtdvalue", async (req, res) => {
     const tray = await findTray() 
     // if (!tray) {
     //     res.status(200).send({
@@ -62,18 +62,18 @@ app.get("/quantevalor", async (req, res) => {
 })
 
 //checar
-// app.get("/quantevalorsomado", async (req, res) => {
+// app.get("/qtdvaluesomado", async (req, res) => {
 //     const bill = await findBill()
 //     res.status(200).json(bill) 
 
 // })
 
-app.get("/valordaconta", async (req, res) => {
+app.get("/billvalue", async (req, res) => {
     const bill = await getBillAmount()
     res.status(200).json(bill)
 })
 
-app.get("/verconta", async (req, res) => {
+app.get("/seebill", async (req, res) => {
     const bill = await checkBill()
     if (bill) {
 
