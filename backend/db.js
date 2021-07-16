@@ -134,7 +134,7 @@ export async function findTray() {
             return { quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor, valortotal: 0 }
         }, { quantidade: 0, valor: 0, valortotal: 0 })
     } else {
-        
+
     }
 
     const bill = await getCollection(DB_GARCONET, "conta");
@@ -148,7 +148,7 @@ export async function findTray() {
         valores.valortotal = parseFloat(valortotal);
         return valores;
     }
-
+    return valores;
 }
 
 export async function getBillAmount() {
@@ -281,6 +281,7 @@ export async function decrementQuantity(body) {
         itemFound.quantidade -= 1
         itemFound.valor -= productFound.preco
     }
+    console.log(itemFound)
     const trayUpdated = await collection.updateOne(
         { _id: mongodb.ObjectId(body.idconta) }
         , {

@@ -49,17 +49,16 @@ app.post("/order", async (req, res) => {
 })
 
 app.get("/quantevalor", async (req, res) => {
-    const tray = await findTray()
-    console.log(tray)
-    if (!tray) {
-        res.status(200).send({
-            "quantidade": 0,
-            "valortotal": 0,
-            "valor": 0
-        })
-    } else {
+    const tray = await findTray() 
+    // if (!tray) {
+    //     res.status(200).send({
+    //         "quantidade": 0,
+    //         "valortotal": 0,
+    //         "valor": 0
+    //     })
+    // } else {
         res.status(200).send(tray)
-    }
+    //}
 })
 
 //checar
@@ -108,3 +107,4 @@ app.get("/killbill", async (req, res) => {
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))
+
