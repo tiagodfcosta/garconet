@@ -10,26 +10,14 @@ import ContaAtual from "./Componentes/Contaatual.js";
 import { format, compareAsc } from 'date-fns'
 import CloseTab from "./Closetab"
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> main
 class PaginaPrincipal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
-<<<<<<< HEAD
             bill: []
         }
     }
-=======
-            conta: []
-        }
-    }
-   
->>>>>>> main
 
     togglePopup = () => {
         this.getBill()
@@ -39,7 +27,6 @@ class PaginaPrincipal extends React.Component {
     }
 
     getBill() {
-<<<<<<< HEAD
         fetch("/seebill")
             .then(res => res.json())
             .then(res => {
@@ -49,20 +36,6 @@ class PaginaPrincipal extends React.Component {
                         "products": e.items
                     }))
                 }))
-=======
-        fetch("/verconta")
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                
-                    this.setState((state) => ({
-                        conta: res.bandeja.map((e) => ({
-                            "datadecriacao": e.dataCriacao,
-                            "produtos": e.artigos
-                        }))
-                    }))
-                
->>>>>>> main
             })          
     }
 
@@ -70,20 +43,12 @@ class PaginaPrincipal extends React.Component {
         this.getBill()
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     render() {
         return (
             <>
                 <div>
                     <h2>Restaurante da Gertrudes</h2>
-<<<<<<< HEAD
                     <img className="logogarconet" alt="logogarconet" src="logogarconet.png" />
-=======
-                    <img className="logogarconet" src="logogarconet.png" />
->>>>>>> main
                     <div>
                         <p>burger menu do canto</p>
                     </div>
@@ -95,7 +60,6 @@ class PaginaPrincipal extends React.Component {
                     {this.state.isOpen && <ContaAtual
                         content={<>
                             <b>Os seus pedidos</b>
-<<<<<<< HEAD
                             <ol>
                                 {this.state.bill.map((e) => {
                                 return (
@@ -105,28 +69,12 @@ class PaginaPrincipal extends React.Component {
                                         }</p>
                                         <p>{(
                                             e.products.map(e => <p>{e.quantity} x {e.name} - {e.value.toFixed(2)} €</p>) 
-=======
-                            
-                            <ol>
-                                {this.state.conta.map((e) => {
-                                return (
-                                    <li>
-                                        <p>Pedido: {
-                                            format(new Date(e.datadecriacao), 'dd/MM/yyyy HH:mm')
-                                        }</p>
-                                        <p>{(
-                                            e.produtos.map(e => <p>{e.quantidade} x {e.nome} - {e.valor.toFixed(2)} €</p>) 
->>>>>>> main
                                         )}</p>
                                     </li>
                                 )}
                                 )}
                             </ol>
-<<<<<<< HEAD
                             <p>Valor total: {this.props.addedvalue.toFixed(2)} €</p>
-=======
-                            <p>Valor total: {this.props.valoradicionado.toFixed(2)} €</p>
->>>>>>> main
                         </>}
                         handleClose={() => this.togglePopup()}
                     />}
