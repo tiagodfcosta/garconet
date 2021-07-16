@@ -19,7 +19,7 @@ export function MenuPart(props) {
     const [quantity, setQuantity] = useState(1);
 
    
-  //função meio maluca que escreve o produto atual que foi clicado, se algo der ruim, checar aqui
+  
   const togglePopup = async (e) => {
     setIsOpen(!isOpen);           
     setSelectProduct(e);      
