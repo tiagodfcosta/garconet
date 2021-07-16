@@ -1,7 +1,9 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, deliverOrder,
-    updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays, decrementQuantity, incrementQuantity} from './db.js'
+import {
+    insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, deliverOrder, killBill,
+    updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays, decrementQuantity, incrementQuantity
+} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -12,7 +14,7 @@ app.use(express.json())
 app.post("/auth", async (req, res) => {
     const { username, password } = req.body;
     const user = await findUser(username);
-    if(user && user.password === password) {
+    if (user && user.password === password) {
         const sessionId = await insertSession(user._id)
         res.status(200).json({ token: sessionId })
     } else {
@@ -24,21 +26,21 @@ app.post("/auth", async (req, res) => {
 // criação de user na base de dados
 app.post("/user", async (req, res) => {
     const id = await insertUser(req.body)
-    res.status(200).json({id})
+    res.status(200).json({ id })
 })
 
 app.get("/category", async (req, res) => {
     try {
         const products = await findProducts()
-        res.status(200).json({products})
-    } catch(err) {
+        res.status(200).json({ products })
+    } catch (err) {
         console.log("erroooou" + err)
     }
 })
 
-app.post("/tray", async (req, res) => {    
+app.post("/tray", async (req, res) => {
     const tray = await updateTray(req.body);
-    res.status(200).send("you did it")    
+    res.status(200).send("you did it")
 })
 
 app.post("/order", async (req, res) => {
@@ -48,14 +50,23 @@ app.post("/order", async (req, res) => {
 
 app.get("/quantevalor", async (req, res) => {
     const tray = await findTray()
-    res.status(200).send(tray) 
+    console.log(tray)
+    if (!tray) {
+        res.status(200).send({
+            "quantidade": 0,
+            "valortotal": 0,
+            "valor": 0
+        })
+    } else {
+        res.status(200).send(tray)
+    }
 })
 
 //checar
 // app.get("/quantevalorsomado", async (req, res) => {
 //     const bill = await findBill()
 //     res.status(200).json(bill) 
-    
+
 // })
 
 app.get("/valordaconta", async (req, res) => {
@@ -63,9 +74,9 @@ app.get("/valordaconta", async (req, res) => {
     res.status(200).json(bill)
 })
 
-app.get("/verconta", async(req, res) => {
+app.get("/verconta", async (req, res) => {
     const bill = await checkBill()
-    if(bill) {
+    if (bill) {
 
         res.status(200).json(bill)
     }
@@ -88,6 +99,11 @@ app.post("/increment", async (req, res) => {
 
 app.post("/deliver", async (req, res) => {
     const deliver = await deliverOrder(req.body);
+    res.sendStatus(200)
+})
+
+app.get("/killbill", async (req, res) => {
+    const billkilled = await killBill();
     res.sendStatus(200)
 })
 

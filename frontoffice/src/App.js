@@ -12,6 +12,7 @@ import {
   Link,
 } from "react-router-dom";
 import fs from "fs";
+import CloseTab from './Closetab';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -83,8 +84,11 @@ export default class App extends React.Component {
             adicionarvalor={() => this.getBillAmount()} 
             stateToZero={() => this.stateToZero()} />
           </Route>
+          <Route>
+            <CloseTab path="/closetab"/>
+          </Route>
        </Switch>
-       <p>Quantidade de itens: {this.state.quantidadedeitens}</p>
+       <p>Quantidade de itens a adicionar: {this.state.quantidadedeitens}</p>
        <p>Valor total: {this.state.valoradicionado.toFixed(2)} € + {this.state.valortotal.toFixed(2)} €</p>
        </div>
      </Router>
