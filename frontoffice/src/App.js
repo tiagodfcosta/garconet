@@ -1,36 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-<<<<<<< Updated upstream
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-=======
 import Paginadelogin from "./Paginadelogin"
-import PaginaPrincipal from './mainPage';
+import mainPage from './mainPage';
 import backButton from './Components/backButton';
 import React from "react"
 import {Menu} from './Menu'
-import { MenuPart } from './Components/MenuPart';
+import { menuPart } from './Components/menuPart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -45,17 +19,17 @@ export default class App extends React.Component {
     this.state = {
       "itemquantity": 0,
       "totalvalue": 0,
-      "incrementedvalue": 0 
+      "addedvalue": 0 
     }    
   }
 
   getBillAmount() {
-    fetch("/accountvalue")
+    fetch("/addedvalue")
     .then(res => res.json())
     .then(json => this.setState((state) => ({
-      incrementedvalue: json
+      addedvalue: json
     })))
-    console.log(this.state.incrementedvalue)
+    console.log(this.state.addedvalue)
   }
 
   stateToZero() {
@@ -73,17 +47,18 @@ export default class App extends React.Component {
       totalvalue: state.totalvalue + value
     }))
    
-  }
+  }  
   
   componentDidMount() {
-    fetch("/qtdvalue")
-    .then(res => res.json())
-    .then(json => this.setState((state) => ({
-      itemquantity: json.quantity,
-      totalvalue: json.value,
-      valoradicionado: json.totalvalue
-    })))
-    
+    setInterval(() => {
+      fetch("/qtdvalue")
+      .then(res => res.json())
+      .then(json => this.setState((state) => ({
+        itemquantity: json.quantity,
+        totalvalue: json.value,
+        addedvalue: json.totalvalue
+      })))      
+    }, 1000);    
   }
 
   render() {
@@ -96,7 +71,7 @@ export default class App extends React.Component {
        </nav>
        <Switch>
           <Route exact path="/">
-          <PaginaPrincipal incrementedvalue={this.state.incrementedvalue}/>
+          <PaginaPrincipal addedvalue={this.state.addedvalue}/>
           </Route>
           <Route path="/menu/:category">
             <MenuPart handleState={this.handleState} />
@@ -110,10 +85,10 @@ export default class App extends React.Component {
           </Route>
        </Switch>
        <p>Quantidade de itens: {this.state.itemquantity}</p>
-       <p>Valor total: {this.state.incrementedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
+       <p>Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
        </div>
      </Router>
     );
   }
 }
->>>>>>> Stashed changes
+

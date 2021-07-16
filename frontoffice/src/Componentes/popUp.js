@@ -1,7 +1,7 @@
 import React from "react";
 import "./popUp.css";
  
-export default function actualAccount(props) {
+export default function popUp(props) {
   return (
     <div className="popup-box">
       <div className="box">

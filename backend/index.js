@@ -1,6 +1,7 @@
 import express from 'express';
 import * as fs from 'fs/promises';
-import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, updateTray, findTray, createBill, getBillAmount, checkBill} from './db.js'
+import {insertUser, findUser, findUserById, insertSession, findSession, extendSession, findProducts, 
+    updateTray, findTray, createBill, getBillAmount, checkBill, getOpenTrays, decrementQuantity, incrementQuantity} from './db.js'
 
 const PORT = 3001
 const app = express()
@@ -45,7 +46,7 @@ app.post("/order", async (req, res) => {
     res.status(200).send("conta criada bebe")
 })
 
-app.get("/qtdvalue", async (req, res) => {
+app.get("/quantevalor", async (req, res) => {
     const tray = await findTray()
     res.status(200).send(tray) 
 })
@@ -57,17 +58,32 @@ app.get("/qtdvalue", async (req, res) => {
     
 // })
 
-app.get("/billvalue", async (req, res) => {
+app.get("/valordaconta", async (req, res) => {
     const bill = await getBillAmount()
     res.status(200).json(bill)
 })
 
-app.get("/seebill", async(req, res) => {
+app.get("/verconta", async(req, res) => {
     const bill = await checkBill()
     if(bill) {
 
         res.status(200).json(bill)
     }
+})
+
+app.get("/opentrays", async (req, res) => {
+    const trays = await getOpenTrays()
+    res.status(200).json(trays)
+})
+
+app.post("/decrement", async (req, res) => {
+    const trays = await decrementQuantity(req.body)
+    res.status(200).send("foi!")
+})
+
+app.post("/increment", async (req, res) => {
+    const trays = await incrementQuantity(req.body)
+    res.status(200).send("foi!")
 })
 
 app.listen(PORT, () => console.log('Camões está aqui para te ouvir'))

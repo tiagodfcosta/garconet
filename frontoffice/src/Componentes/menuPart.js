@@ -4,10 +4,10 @@ import {
     useParams
   } from "react-router-dom";
 import Popup from "./popUp";
-import "./MenuPart.css"
+import "./menuPart.css"
 
 
-export function MenuPart(props) {
+export function menuPart(props) {
     const {category} = useParams();
   
     const [prods, setProds] = useState([]) 
@@ -28,9 +28,9 @@ export function MenuPart(props) {
       await fetch("/tray", {
         method: "POST",
         body: JSON.stringify(
-          {"name": selectedProduct.name,
-          "quantity": quantity,
-          "value": selectedProduct.price * quantity            
+          {"nome": selectedProduct.name,
+          "quantidade": quantity,
+          "valor": selectedProduct.price * quantity            
           }),
         headers: {
           "Content-Type": "application/json"
@@ -61,7 +61,7 @@ export function MenuPart(props) {
       fetch("/category")
       .then(products => products.json())
       .then(json => {
-        const prods = json.products.filter(e => e.categoria === category)
+        const prods = json.products.filter(e => e.categories === category)
         setProds(prods)
       })  
     }, [])   

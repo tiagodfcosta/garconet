@@ -6,20 +6,20 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import actualAccount from "./Components/actualAccount.js";
+import actualBill from "./Components/actualBill";
 import { format, compareAsc } from 'date-fns'
-
 
 class mainPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
-            account: []
+            bill: []
         }
     }
 
     togglePopup = () => {
+        this.getBill()
         this.setState((state) => ({
             isOpen: !(state.isOpen)
         }));
@@ -27,18 +27,15 @@ class mainPage extends React.Component {
 
     getBill() {
         //fetch para buscar conta
-        fetch("/seeaccount")
+        fetch("/seebill")
             .then(res => res.json())
             .then(res => {
-                console.log(res)
-                
                     this.setState((state) => ({
-                        conta: res.tray.map((e) => ({
-                            "datadecriacao": e.creationDate,
-                            "produtos": e.items
+                        conta: res.bandeja.map((e) => ({
+                            "ofcreationdate": e.creationDate,
+                            "products": e.items
                         }))
-                    }))
-                
+                    }))   
             })          
     }
 
@@ -60,7 +57,7 @@ class mainPage extends React.Component {
                     <button onClick={this.togglePopup}>Ver conta atual</button>
                     <button>Fechar a conta</button>
                     <button>Pedir ajuda</button>
-                    {this.state.isOpen && <actualAccount
+                    {this.state.isOpen && <ActualBill
                         content={<>
                             <b>Os seus pedidos</b>
                             
@@ -69,16 +66,16 @@ class mainPage extends React.Component {
                                 return (
                                     <li>
                                         <p>Pedido: {
-                                            format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')
+                                            format(new Date(e.ofcreationdate), 'dd/MM/yyyy HH:mm')
                                         }</p>
                                         <p>{(
-                                            e.products.map(e => <p>{e.quantity} x {e.name} - {e.value} €</p>) 
+                                            e.products.map(e => <p>{e.quantity} x {e.name} - {e.value.toFixed(2)} €</p>) 
                                         )}</p>
                                     </li>
                                 )}
                                 )}
                             </ol>
-                            <p>Valor total: {this.props.incrementedvalue.toFixed(2)} €</p>
+                            <p>Valor total: {this.props.addedvalue.toFixed(2)} €</p>
                         </>}
                         handleClose={() => this.togglePopup()}
                     />}
