@@ -649,9 +649,10 @@ function checkBill() {
 
         case 5:
           bill = _context15.sent;
+          console.log(bill);
           return _context15.abrupt("return", bill);
 
-        case 7:
+        case 8:
         case "end":
           return _context15.stop();
       }

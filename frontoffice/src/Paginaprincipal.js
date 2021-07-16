@@ -10,8 +10,6 @@ import ContaAtual from "./Componentes/Contaatual.js";
 import { format, compareAsc } from 'date-fns'
 import CloseTab from "./Closetab"
 
-
-
 class PaginaPrincipal extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +18,6 @@ class PaginaPrincipal extends React.Component {
             bill: []
         }
     }
-   
 
     togglePopup = () => {
         this.getBill()
@@ -34,7 +31,7 @@ class PaginaPrincipal extends React.Component {
             .then(res => res.json())
             .then(res => {
                 this.setState((state) => ({
-                    conta: res.btray.map((e) => ({
+                    bill: res.btray.map((e) => ({
                         "ofcreationdate": e.creationDate,
                         "products": e.items
                     }))
@@ -46,13 +43,12 @@ class PaginaPrincipal extends React.Component {
         this.getBill()
     }
 
-
     render() {
         return (
             <>
                 <div>
                     <h2>Restaurante da Gertrudes</h2>
-                    <img className="logogarconet" src="logogarconet.png" />
+                    <img className="logogarconet" alt="logogarconet" src="logogarconet.png" />
                     <div>
                         <p>burger menu do canto</p>
                     </div>
@@ -65,7 +61,7 @@ class PaginaPrincipal extends React.Component {
                         content={<>
                             <b>Os seus pedidos</b>
                             <ol>
-                                {this.state.conta.map((e) => {
+                                {this.state.bill.map((e) => {
                                 return (
                                     <li>
                                         <p>Pedido: {

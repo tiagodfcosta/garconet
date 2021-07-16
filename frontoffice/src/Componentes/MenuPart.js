@@ -65,7 +65,7 @@ export function MenuPart(props) {
       <div>
         <ul>{prods.map(e => {
           return <li>
-            <img className="products" src={e.image}/>
+            <img className="products" alt="products" src={e.image}/>
             {e.name}<br/>
             {e.price}€<br/>
             <input type="button" value="Select" onClick={() => togglePopup(e)}/>
@@ -74,8 +74,8 @@ export function MenuPart(props) {
         {isOpen && <Popup
       content={<>
         <b>{selectedProduct.name}</b>
-        <p>{selectedProduct.descricao}</p>
-        <img className="products" src={selectedProduct.image}/> <br/>
+        <p>{selectedProduct.description}</p>
+        <img className="products" alt="products" src={selectedProduct.image}/> <br/>
         <button onClick={reduceQuantity}>-</button>
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>

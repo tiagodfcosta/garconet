@@ -43,7 +43,7 @@ class CloseTab extends React.Component {
             <div>
                 <b>Os seus pedidos</b>
                             <ol>
-                                {this.state.conta.map((e) => {
+                                {this.state.bill.map((e) => {
                                 return (
                                     <li>
                                         <p>Pedido: {
@@ -56,11 +56,9 @@ class CloseTab extends React.Component {
                                 )}
                                 )}
                             </ol>
-                            
                             <input type="radio" value="Credit" name="payment" /> Credit Card
                             <input type="radio" value="MbWay" name="payment" /> MBWay
                             <input type="radio" value="Body" name="payment" checked/> Lavar loiça
-
                             <Link to="/"><button onClick={() => this.killBill()}>Pagar</button></Link>          
             </div>
         )

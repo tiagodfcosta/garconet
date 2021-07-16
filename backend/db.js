@@ -246,7 +246,7 @@ export async function createBill() {
 export async function checkBill() {
     const collection = await getCollection(DB_GARCONET, "bill");
     const bill = await collection.findOne({ open: true })
-
+    console.log(bill)
     return bill
 }
 
