@@ -4,7 +4,7 @@ import {
     useParams
   } from "react-router-dom";
 import Popup from "./popUp";
-import "./menuPart.css"
+import "./MenuPart.css"
 
 export function MenuPart(props) {
     const {category} = useParams();
@@ -17,8 +17,6 @@ export function MenuPart(props) {
 
     const [quantity, setQuantity] = useState(1);
 
-   
-  //função meio maluca que escreve o produto atual que foi clicado, se algo der ruim, checar aqui
   const togglePopup = async (e) => {
     setIsOpen(!isOpen);           
     setSelectProduct(e);      
@@ -27,9 +25,9 @@ export function MenuPart(props) {
       await fetch("/tray", {
         method: "POST",
         body: JSON.stringify(
-          {"nome": selectedProduct.name,
-          "quantidade": quantity,
-          "valor": selectedProduct.price * quantity            
+          {"name": selectedProduct.name,
+          "quantity": quantity,
+          "value": selectedProduct.price * quantity            
           }),
         headers: {
           "Content-Type": "application/json"
@@ -54,8 +52,6 @@ export function MenuPart(props) {
   const addQuantity = () => {
     setQuantity(quantity + 1);    
   } 
-
-  
     useEffect(() => {
       fetch("/category")
       .then(products => products.json())
@@ -72,14 +68,14 @@ export function MenuPart(props) {
             <img className="products" src={e.image}/>
             {e.name}<br/>
             {e.price}€<br/>
-            <input type="button" value="select" onClick={() => togglePopup(e)}/>
+            <input type="button" value="Select" onClick={() => togglePopup(e)}/>
           </li>
         })}</ul>
         {isOpen && <Popup
       content={<>
         <b>{selectedProduct.name}</b>
-        <p>{selectedProduct.description}</p>
-        <img className="products" src={selectedProduct.imagem}/> <br/>
+        <p>{selectedProduct.descricao}</p>
+        <img className="products" src={selectedProduct.image}/> <br/>
         <button onClick={reduceQuantity}>-</button>
         <p>{quantity}</p>
         <button onClick={addQuantity}>+</button> <br></br>

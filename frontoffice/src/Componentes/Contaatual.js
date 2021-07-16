@@ -1,7 +1,7 @@
 import React from "react";
 import "./popUp.css";
  
-export default function actualBill(props) {
+export default function ContaAtual(props) {
   return (
     <div className="popup-box">
       <div className="box">

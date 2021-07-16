@@ -6,10 +6,13 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import actualBill from "./Components/actualBill";
+import ContaAtual from "./Componentes/Contaatual.js";
 import { format, compareAsc } from 'date-fns'
+import CloseTab from "./Closetab"
 
-class mainPage extends React.Component {
+
+
+class PaginaPrincipal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,6 +20,7 @@ class mainPage extends React.Component {
             bill: []
         }
     }
+   
 
     togglePopup = () => {
         this.getBill()
@@ -26,22 +30,22 @@ class mainPage extends React.Component {
     }
 
     getBill() {
-        //fetch para buscar conta
         fetch("/seebill")
             .then(res => res.json())
             .then(res => {
-                    this.setState((state) => ({
-                        conta: res.bandeja.map((e) => ({
-                            "ofcreationdate": e.creationDate,
-                            "products": e.items
-                        }))
-                    }))   
+                this.setState((state) => ({
+                    conta: res.btray.map((e) => ({
+                        "ofcreationdate": e.creationDate,
+                        "products": e.items
+                    }))
+                }))
             })          
     }
 
     componentDidMount() {
         this.getBill()
     }
+
 
     render() {
         return (
@@ -55,12 +59,11 @@ class mainPage extends React.Component {
                     <br></br>
                     <Link to="/menu"><button>MENU</button></Link>
                     <button onClick={this.togglePopup}>Ver conta atual</button>
-                    <button>Fechar a conta</button>
+                    <Link to="/closetab"><button>Fechar a conta</button></Link>
                     <button>Pedir ajuda</button>
-                    {this.state.isOpen && <actualBill
+                    {this.state.isOpen && <ContaAtual
                         content={<>
                             <b>Os seus pedidos</b>
-                            
                             <ol>
                                 {this.state.conta.map((e) => {
                                 return (
@@ -85,4 +88,4 @@ class mainPage extends React.Component {
     }
 }
 
-export default mainPage;
+export default PaginaPrincipal;

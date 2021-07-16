@@ -1,10 +1,9 @@
 import './App.css';
-import Paginadelogin from "./Paginadelogin"
-import mainPage from './mainPage';
-import BackButton from './Components/BackButton';
+import PaginaPrincipal from './Paginaprincipal';
+import BackButton from './Componentes/BackButton';
 import React from "react"
 import {Menu} from './Menu'
-import { menuPart } from './Components/menuPart';
+import { MenuPart } from './Componentes/MenuPart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +11,7 @@ import {
   Link,
 } from "react-router-dom";
 import fs from "fs";
+import CloseTab from './Closetab';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ export default class App extends React.Component {
   }
 
   getBillAmount() {
-    fetch("/addedvalue")
+    fetch("/billvalue")
     .then(res => res.json())
     .then(json => this.setState((state) => ({
       addedvalue: json
@@ -41,12 +41,10 @@ export default class App extends React.Component {
   
 
   handleState = (quantity, value) => {
-    
     this.setState((state) => ({
       itemquantity: state.itemquantity + quantity,
       totalvalue: state.totalvalue + value
     }))
-   
   }  
   
   componentDidMount() {
@@ -71,24 +69,26 @@ export default class App extends React.Component {
        </nav>
        <Switch>
           <Route exact path="/">
-          <mainPage addedvalue={this.state.addedvalue}/>
+          <PaginaPrincipal addedvalue={this.state.addedvalue}/>
           </Route>
           <Route path="/menu/:category">
-            <menuPart handleState={this.handleState} />
+            <MenuPart handleState={this.handleState} />
           </Route>
           <Route path="/menu">
             <Menu 
-            itemquantity={this.state.itemquantity} 
+            itemsquantity={this.state.itemquantity} 
             totalvalue={this.state.totalvalue} 
             addvalue={() => this.getBillAmount()} 
             stateToZero={() => this.stateToZero()} />
           </Route>
+          <Route>
+            <CloseTab path="/closetab"/>
+          </Route>
        </Switch>
-       <p>Quantidade de itens: {this.state.itemquantity}</p>
+       <p>Quantidade de itens a adicionar: {this.state.itemquantity}</p>
        <p>Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
        </div>
      </Router>
     );
   }
 }
-
