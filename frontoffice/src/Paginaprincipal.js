@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import ContaAtual from "./Componentes/Contaatual.js";
 import { format, compareAsc } from 'date-fns'
+import CloseTab from "./Closetab"
+
 
 
 class PaginaPrincipal extends React.Component {
@@ -18,6 +20,7 @@ class PaginaPrincipal extends React.Component {
             conta: []
         }
     }
+   
 
     togglePopup = () => {
         this.getBill()
@@ -27,7 +30,6 @@ class PaginaPrincipal extends React.Component {
     }
 
     getBill() {
-        //fetch para buscar conta
         fetch("/verconta")
             .then(res => res.json())
             .then(res => {
@@ -47,6 +49,7 @@ class PaginaPrincipal extends React.Component {
         this.getBill()
     }
 
+
     render() {
         return (
             <>
@@ -59,7 +62,7 @@ class PaginaPrincipal extends React.Component {
                     <br></br>
                     <Link to="/menu"><button>MENU</button></Link>
                     <button onClick={this.togglePopup}>Ver conta atual</button>
-                    <button>Fechar a conta</button>
+                    <Link to="/closetab"><button>Fechar a conta</button></Link>
                     <button>Pedir ajuda</button>
                     {this.state.isOpen && <ContaAtual
                         content={<>

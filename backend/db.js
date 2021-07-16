@@ -133,6 +133,8 @@ export async function findTray() {
         valores = tray.artigos.reduce((acc, curr) => {
             return { quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor, valortotal: 0 }
         }, { quantidade: 0, valor: 0, valortotal: 0 })
+    } else {
+        
     }
 
     const bill = await getCollection(DB_GARCONET, "conta");
@@ -334,4 +336,20 @@ export async function deliverOrder(body) {
         }
     )
     return trayUpdated
+}
+
+export async function killBill() {
+    const collection = await getCollection(DB_GARCONET, "conta")
+    
+
+    //92% de certeza que isso não está do jeito que deveria
+    await collection.updateOne(
+        {
+            aberta: true
+        } , {
+            $set: {
+                aberta: false
+            }
+        }
+    )
 }
