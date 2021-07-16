@@ -6,11 +6,11 @@ class Restaurante extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            contas: [],
+            bills: [],
             isOpen: false,
-            datadobotao: "",
-            idconta: "",
-            idbandeja: ""
+            buttondate: "",
+            idbill: "",
+            idbtray: ""
         }
     }
 
@@ -18,9 +18,8 @@ class Restaurante extends React.Component {
         fetch("/opentrays")
             .then(res => res.json())
             .then(json => this.setState({
-                contas: json
+                bills: json
             }))
-
     }
 
     componentDidMount() {
@@ -33,30 +32,25 @@ class Restaurante extends React.Component {
     togglePopupX = async (e) => {
         this.setState((state) => ({
             isOpen: !state.isOpen,
-            datadobotao: e.dataCriacao
-
+            buttondate: e.creationDate
         }));
-        console.log(this.state.datadobotao)
-
+        console.log(this.state.buttondate)
     }
-
-
 
     decrement(e, b, a) {
         fetch("/decrement", {
             method: "POST",
-            body: JSON.stringify({ idconta: e._id, idbandeja: b._id, nome: a.nome }),
+            body: JSON.stringify({ idbill: e._id, idbtray: b._id, name: a.name }),
             headers: {
                 "Content-Type": "application/json"
             }
         })
-
     }
 
     // increment(e, b, a) {
     //     fetch("/increment", {
     //         method: "POST",
-    //         body: JSON.stringify({ idconta: e._id, idbandeja: b._id, nome: a.nome }),
+    //         body: JSON.stringify({ idbill: e._id, idbtray: b._id, name: a.name }),
     //         headers: {
     //             "Content-Type": "application/json"
     //         }
@@ -66,58 +60,45 @@ class Restaurante extends React.Component {
     deliverOrder(e, b) {
         fetch("/deliver", {
             method: "POST",
-            body: JSON.stringify({ idconta: e._id, idbandeja: b._id }),
+            body: JSON.stringify({ idbill: e._id, idbtray: b._id }),
             headers: {
                 "Content-Type": "application/json"
             }
         })
         this.state.isOpen = false
-
     }
-
 
     render() {
         return (
             <div>
                 <h1>Pedidos não entregues:</h1>
 
-                {this.state.contas.map(e => e.bandeja.filter(e => e.aberta === true).map(e =>
-                    (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.dataCriacao), 'dd/MM/yyyy HH:mm')}</button>)
+                {this.state.bills.map(e => e.btray.filter(e => e.open === true).map(e =>
+                    (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')}</button>)
                 ))}
 
                 {this.state.isOpen && <Popup
                     content={<>
-
-                        <b>{this.state.contas
-                            .map(e => e.bandeja
-                                .filter(e => e.aberta === true && e.dataCriacao === this.state.datadobotao)
-                                .map(b => b.artigos
+                        <b>{this.state.bills
+                            .map(e => e.btray
+                                .filter(e => e.open === true && e.creationDate === this.state.buttondate)
+                                .map(b => b.items
                                     .map(a => (
                                         <p>
                                             <button onClick={() => this.decrement(e, b, a)}>-</button>
-                                            {a.quantidade}
-                                             x {a.nome} <br />
-                                            
+                                            {a.quantity}
+                                             x {a.name} <br />
                                         </p>
-
                                     )
                                     )))}</b>
-
-                        <b>{this.state.contas
-                            .map(e => e.bandeja
-                                .filter(e => e.aberta === true && e.dataCriacao === this.state.datadobotao)
+                        <b>{this.state.bills
+                            .map(e => e.btray
+                                .filter(e => e.open === true && e.creationDate === this.state.buttondate)
                                 .map(b => (
                                         <p>
-                                        
-                                            <button onClick={() => this.deliverOrder(e, b)}>Pedido entregue</button>
-                                            
+                                            <button onClick={() => this.deliverOrder(e, b)}>Pedido entregue</button>  
                                         </p>
-
-                                    
                                     )))}</b>
-                                    
-
-
                     </>}
                     handleClose={this.togglePopupX}
                 />}
