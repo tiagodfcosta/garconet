@@ -57,7 +57,7 @@ class mainPage extends React.Component {
                     <button onClick={this.togglePopup}>Ver conta atual</button>
                     <button>Fechar a conta</button>
                     <button>Pedir ajuda</button>
-                    {this.state.isOpen && <ActualBill
+                    {this.state.isOpen && <actualBill
                         content={<>
                             <b>Os seus pedidos</b>
                             

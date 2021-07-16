@@ -6,7 +6,6 @@ import {
 import Popup from "./popUp";
 import "./menuPart.css"
 
-
 export function menuPart(props) {
     const {category} = useParams();
   

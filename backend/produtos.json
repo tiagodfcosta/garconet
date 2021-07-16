@@ -1,101 +1,101 @@
 {
-  "produtos":  [{
-    "categoria": "bebidas",
-    "nome" : "Coca-Cola",
-    "preco" : "1.50",
-    "descricao" : "Carregue-se com toda a energia positiva que necessita para o seu dia, com a Coca-Cola Energy, a única bebida energética com o delicioso sabor a Coca-Cola e sem taurina. Com cafeína de fontes naturais, extrato de guaraná e vitaminas B3 e B6.",
-    "capacidade": "33 cl",
-    "imagem": "/cocacola.jpeg"
+  "products":  [{
+    "category": "bebidas",
+    "name" : "Coca-Cola",
+    "price" : "1.50",
+    "description" : "Carregue-se com toda a energia positiva que necessita para o seu dia, com a Coca-Cola Energy, a única bebida energética com o delicioso sabor a Coca-Cola e sem taurina. Com cafeína de fontes naturais, extrato de guaraná e vitaminas B3 e B6.",
+    "capacity": "33 cl",
+    "image": "/cocacola.jpeg"
     },
   {
-    "categoria": "bebidas",
-    "nome" : "Fanta",
-    "preco" : "1.50",
-    "descricao" : "Se quiser viver aventuras plenas de sabor, trate de ter uma Fanta Guaraná sempre à mão, uma coisa que vais perceber assim que a provar.",
-    "capacidade": "33 cl",
-    "imagem": "/fanta.jpeg"
+    "category": "bebidas",
+    "name" : "Fanta",
+    "price" : "1.50",
+    "description" : "Se quiser viver aventuras plenas de sabor, trate de ter uma Fanta Guaraná sempre à mão, uma coisa que vais perceber assim que a provar.",
+    "capacity": "33 cl",
+    "image": "/fanta.jpeg"
     },
   {
-    "categoria": "bebidas",
-    "nome" : "7UP",
-    "preco" : "1.50",
-    "descricao" : "Refrigerante com Gás Lima Limão",
-    "capacidade": "200 ml",
-    "imagem": "/7up.jpeg"
+    "category": "bebidas",
+    "name" : "7UP",
+    "price" : "1.50",
+    "description" : "Refrigerante com Gás Lima Limão",
+    "capacity": "200 ml",
+    "image": "/7up.jpeg"
     
     },
   {
-    "categoria": "aperitivos",
-    "nome" : "Hummus com Sabor a Chili e Limão sem Glúten",
-    "preco" : "2.19",
-    "descricao" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
-    "capacidade": "135 gr",
-    "imagem": "/hummus.jpeg"
+    "category": "aperitivos",
+    "name" : "Hummus com Sabor a Chili e Limão sem Glúten",
+    "price" : "2.19",
+    "description" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
+    "capacity": "135 gr",
+    "image": "/hummus.jpeg"
     },
   {
-    "categoria": "aperitivos",
-    "nome" : "3D's Bacon",
-    "preco" : "1.45",
-    "descricao" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
-    "capacidade": "135 gr",
-    "imagem": "/3d.jpeg"
+    "category": "aperitivos",
+    "name" : "3D's Bacon",
+    "price" : "1.45",
+    "description" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
+    "capacity": "135 gr",
+    "image": "/3d.jpeg"
     },
   {
-    "categoria": "aperitivos",
-    "nome" : "Rissóis de Camarão",
-    "preco" : "3.5",
-    "descricao" : "Recheio: Miolo de camarão (contém crustáceos)(28%), água, leite em pó, margarina (óleos e gorduras vegetais de palma e girassol, água, sal, soro lácteo, emulsionantes (E-322, E-471 e E4-75), lecitina de soja, dextrose, regulador de acidez (E-330), aroma, antioxidantes (E-310 e E-320) e corante (E-160a)), farinha de trigo, tomate, sal, salsa, cebola (contém sulfitos), azeite, especiarias e corante natural. Massa: Água, farinha de trigo, gordura animal de suíno e sal. Panagem: Pão ralado (farinha de trigo, água, levedura, sal, emulsionante (E-472e), antioxidante (E-300), corante (E-170) e enzimas (contém glúten)), água, farinha de trigo, soro lácteo, espessante (E-412), levedante químico (E-500ii), gordura vegetal de girassol e sal.",
-    "capacidade": "135 gr",
-    "imagem": "/rissois.jpeg"
+    "category": "aperitivos",
+    "name" : "Rissóis de Camarão",
+    "price" : "3.5",
+    "description" : "Recheio: Miolo de camarão (contém crustáceos)(28%), água, leite em pó, margarina (óleos e gorduras vegetais de palma e girassol, água, sal, soro lácteo, emulsionantes (E-322, E-471 e E4-75), lecitina de soja, dextrose, regulador de acidez (E-330), aroma, antioxidantes (E-310 e E-320) e corante (E-160a)), farinha de trigo, tomate, sal, salsa, cebola (contém sulfitos), azeite, especiarias e corante natural. Massa: Água, farinha de trigo, gordura animal de suíno e sal. Panagem: Pão ralado (farinha de trigo, água, levedura, sal, emulsionante (E-472e), antioxidante (E-300), corante (E-170) e enzimas (contém glúten)), água, farinha de trigo, soro lácteo, espessante (E-412), levedante químico (E-500ii), gordura vegetal de girassol e sal.",
+    "capacity": "135 gr",
+    "image": "/rissois.jpeg"
     },
   {
-    "categoria": "comida",
-    "nome" : "Carne Porco à Portuguesa",
-    "preco" : "15",
-    "descricao" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
-    "capacidade": "350 gr",
-    "imagem": "/carne_porco.jpeg"
+    "category": "comida",
+    "name" : "Carne Porco à Portuguesa",
+    "price" : "15",
+    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
+    "capacity": "350 gr",
+    "image": "/carne_porco.jpeg"
     },
   {
-    "categoria": "comida",
-    "nome" : "Bacalhau à Gomes de Sá",
-    "preco" : "17",
-    "descricao" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
-    "capacidade": "800 gr",
-    "imagem": "/bacalhau.jpeg"
+    "category": "comida",
+    "name" : "Bacalhau à Gomes de Sá",
+    "price" : "17",
+    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
+    "capacity": "800 gr",
+    "image": "/bacalhau.jpeg"
     },
 
   {
-    "categoria": "comida",
-    "nome" : "Arroz de Pato",
-    "preco" : "17",
-    "descricao" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
-    "capacidade": "800 gr",
-    "imagem": "/arroz.jpeg"
+    "category": "comida",
+    "name" : "Arroz de Pato",
+    "price" : "17",
+    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
+    "capacity": "800 gr",
+    "image": "/arroz.jpeg"
     },
   
   {
-    "categoria": "sobremesa",
-    "nome" : "Gelado de Morango Cornetto",
-    "preco" : "2",
-    "descricao" : "Deliciosos gelados de morango e nata com mais xarope de morango no topo. Tudo isto num cone de bolacha com o pedacinho de chocolate no final.",
-    "capacidade": "90 ml",
-    "imagem": "/cornetto.jpeg"
+    "category": "sobremesa",
+    "name" : "Gelado de Morango Cornetto",
+    "price" : "2",
+    "description" : "Deliciosos gelados de morango e nata com mais xarope de morango no topo. Tudo isto num cone de bolacha com o pedacinho de chocolate no final.",
+    "capacity": "90 ml",
+    "image": "/cornetto.jpeg"
     },
   {
-    "categoria": "sobremesa",
-    "nome" : "Gelado Caramel & Nuts",
-    "preco" : "2",
-    "descricao" : "Cremoso gelado de baunilha com molho de caramelho no interior coberto com chocolate de leite Magnum e pedaços de amendoim.",
-    "capacidade": "90 ml",
-    "imagem": "/magnum.jpeg"
+    "category": "sobremesa",
+    "name" : "Gelado Caramel & Nuts",
+    "price" : "2",
+    "description" : "Cremoso gelado de baunilha com molho de caramelho no interior coberto com chocolate de leite Magnum e pedaços de amendoim.",
+    "capacity": "90 ml",
+    "image": "/magnum.jpeg"
     },
   {
-    "categoria": "sobremesa",
-    "nome" : "Gelado Feast",
-    "preco" : "2",
-    "descricao" : "Gelado aromatizado de chocolate com um interior sólido aromatizado de chocolate (13%), cobertura aromatizada de chocolate (19%) e pedaços de biscoito (1,5%).",
-    "capacidade": "90 ml",
-    "imagem": "/feast.jpeg"
+    "category": "sobremesa",
+    "name" : "Gelado Feast",
+    "price" : "2",
+    "description" : "Gelado aromatizado de chocolate com um interior sólido aromatizado de chocolate (13%), cobertura aromatizada de chocolate (19%) e pedaços de biscoito (1,5%).",
+    "capacity": "90 ml",
+    "image": "/feast.jpeg"
     }
 ]}
