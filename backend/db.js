@@ -8,7 +8,11 @@ const { MongoClient } = mongodb
 const URI = 'mongodb://localhost:27017'
 
 //constante com a nossa BD 
+<<<<<<< HEAD
 const DB_GARCONET = "authentication"
+=======
+const DB_GARCONET = "autenticacao"
+>>>>>>> main
 
 //Declarar o client
 let client
@@ -49,7 +53,11 @@ export async function insertUser(user) {
     return res.insertedId;
 }
 
+<<<<<<< HEAD
 // função para encontrar utilizador por name de utilizador
+=======
+// função para encontrar utilizador por nome de utilizador
+>>>>>>> main
 export async function findUser(username) {
     const collection = await getCollection(DB_GARCONET, "users");
     const res = await collection.findOne({ username });
@@ -93,19 +101,32 @@ export async function extendSession(id) {
 
 }
 
+<<<<<<< HEAD
 export async function insertProducts(products) {
     const collection = await getCollection(DB_GARCONET, "products");
     const res = await collection.insertMany(products);
+=======
+export async function insertProducts(produtos) {
+    const collection = await getCollection(DB_GARCONET, "produtos");
+    const res = await collection.insertMany(produtos);
+>>>>>>> main
     return res;
 }
 
 export async function findProducts() {
+<<<<<<< HEAD
     const collection = await getCollection(DB_GARCONET, "products");
     const res = await collection.find().toArray()
+=======
+    const collection = await getCollection(DB_GARCONET, "produtos");
+    const res = await collection.find().toArray()
+    console.log(res);
+>>>>>>> main
     return res
 }
 // //função com problema
 // export async function findBill() {
+<<<<<<< HEAD
 //     const bill = await getCollection(DB_GARCONET, "bill");
 //     const openBill = await bill.findOne({ open: true });
 //     if (openBill) {
@@ -131,10 +152,39 @@ export async function findTray() {
         values = tray.items.reduce((acc, curr) => {
             return { quantity: acc.quantity + curr.quantity, value: acc.value + curr.value, totalvalue: 0 }
         }, { quantity: 0, value: 0, totalvalue: 0 })
+=======
+//     const bill = await getCollection(DB_GARCONET, "conta");
+//     const openBill = await bill.findOne({ aberta: true });
+//     if (openBill) {
+//         let valoresMapeado
+//         let valores = openBill.bandeja.reduce((acc, curr) => {
+//             valoresMapeado = curr.artigos.reduce((acc, curr) => acc + curr.valor)
+
+//             const valorTotal = acc + valoresMapeado.valor
+
+//             return valorTotal
+//         }, 0)
+
+//         return valores;
+//     }
+// }
+
+//chamar também quando não tiver bandeja aberta
+export async function findTray() {
+
+    const collection = await getCollection(DB_GARCONET, "bandeja");
+    const tray = await collection.findOne({ aberta: true })
+    let valores = { quantidade: 0, valor: 0, valortotal: 0 }
+    if (tray) {
+        valores = tray.artigos.reduce((acc, curr) => {
+            return { quantidade: acc.quantidade + curr.quantidade, valor: acc.valor + curr.valor, valortotal: 0 }
+        }, { quantidade: 0, valor: 0, valortotal: 0 })
+>>>>>>> main
     } else {
 
     }
 
+<<<<<<< HEAD
     const bill = await getCollection(DB_GARCONET, "bill");
     const openBill = await bill.findOne({ open: true });
     if (openBill) {
@@ -160,10 +210,42 @@ export async function getBillAmount() {
             }, 0)
         }, 0)
         return values;
+=======
+    const bill = await getCollection(DB_GARCONET, "conta");
+    const openBill = await bill.findOne({ aberta: true });
+    if (openBill) {
+        let valortotal = openBill.bandeja.reduce((acc, curr) => {
+            return acc + curr.artigos.reduce((acc, curr) => {
+                return acc + curr.valor
+            }, 0)
+        }, 0)
+        valores.valortotal = parseFloat(valortotal);
+        return valores;
+    }
+    return valores;
+}
+
+export async function getBillAmount() {
+    const collection = await getCollection(DB_GARCONET, "conta");
+    const bill = await collection.findOne({ aberta: true })
+    let valores;
+    if (bill) {
+        valores = bill.bandeja.reduce((acc, curr) => {
+            return acc + curr.artigos.reduce((acc, curr) => {
+                return acc + curr.valor
+            }, 0)
+        }, 0)
+
+
+
+        return valores;
+
+>>>>>>> main
     }
 }
 
 export async function updateTray(info) {
+<<<<<<< HEAD
     const collection = await getCollection(DB_GARCONET, "btray");
     //procura alguma btray que esteja como open
     let tray = await collection.findOne({ open: true })
@@ -185,20 +267,53 @@ export async function updateTray(info) {
 
     } else {
         tray.items.push(info)
+=======
+    const collection = await getCollection(DB_GARCONET, "bandeja");
+
+    //procura alguma bandeja que esteja como aberta
+    let tray = await collection.findOne({ aberta: true })
+    //se o id não existir, cria com as chaves abaixo
+    if (!tray) {
+        await collection.insertOne({
+            aberta: true,
+            dataCriacao: new Date(),
+            artigos: [],
+        })
+        //a tray se torna a bandeja que foi criada
+        tray = await collection.findOne({ aberta: true })
+    }
+    //checa se o artigo existe, se sim, atualiza a quantidade e o valor, se não, manda tudo pra dentro
+    let item = tray.artigos.find((a) => a.nome === info.nome)
+    if (item) {
+        item.quantidade += info.quantidade
+        item.valor += info.valor
+
+    } else {
+        tray.artigos.push(info)
+>>>>>>> main
     }
     //faz um update na collection com as mudanças acima
     await collection.updateOne({
         _id: tray._id
     }, {
         $set: {
+<<<<<<< HEAD
             items: tray.items,
 
         }
     })
+=======
+            artigos: tray.artigos,
+
+        }
+    })
+
+>>>>>>> main
     return tray;
 }
 
 export async function createBill() {
+<<<<<<< HEAD
     const openTray = await getCollection(DB_GARCONET, "btray")
     let open = await openTray.findOne({ open: true })
 
@@ -223,10 +338,37 @@ export async function createBill() {
         //adicionar a btray na bill
         bill.btray.push(openTray)
         //por fim, atualizar a bill
+=======
+    const bandejaAberta = await getCollection(DB_GARCONET, "bandeja")
+    let aberta = await bandejaAberta.findOne({ aberta: true })
+
+    if (aberta) {
+        const collection = await getCollection(DB_GARCONET, "conta");
+        //checar se existe conta aberta
+        let bill = await collection.findOne({ aberta: true })
+        //se não existir, criar uma com aberta: true, data de criação e bandejas: []
+        if (!bill) {
+            await collection.insertOne({
+                aberta: true,
+                dataCriacao: new Date(),
+                bandeja: []
+            })
+            //a tray se torna a conta que foi criada
+            bill = await collection.findOne({ aberta: true })
+        }
+        //const com a collection bandeja
+        const bandeja = await getCollection(DB_GARCONET, "bandeja")
+
+        let bandejaAberta = await bandeja.findOne({ aberta: true })
+        //adicionar a bandeja na conta
+        bill.bandeja.push(bandejaAberta)
+        //por fim, atualizar a conta
+>>>>>>> main
         await collection.updateOne({
             _id: bill._id
         }, {
             $set: {
+<<<<<<< HEAD
                 btray: bill.btray
             }
         })
@@ -237,6 +379,18 @@ export async function createBill() {
         }, {
             $set: {
                 open: false
+=======
+                bandeja: bill.bandeja
+            }
+        })
+
+        //apagar a bandeja
+        await bandeja.updateOne({
+            _id: bandejaAberta._id
+        }, {
+            $set: {
+                aberta: false
+>>>>>>> main
             }
         })
         return bill
@@ -244,21 +398,34 @@ export async function createBill() {
 }
 
 export async function checkBill() {
+<<<<<<< HEAD
     const collection = await getCollection(DB_GARCONET, "bill");
     const bill = await collection.findOne({ open: true })
     console.log(bill)
+=======
+    const collection = await getCollection(DB_GARCONET, "conta");
+    const bill = await collection.findOne({ aberta: true })
+
+>>>>>>> main
     return bill
 }
 
 export async function getOpenTrays() {
+<<<<<<< HEAD
     const collection = await getCollection(DB_GARCONET, "bill");
     //retornar todas as collections no find()
     const bill = await collection.find({ open: true }).toArray()
+=======
+    const collection = await getCollection(DB_GARCONET, "conta");
+    //retornar todas as collections no find()
+    const bill = await collection.find({ aberta: true }).toArray()
+>>>>>>> main
 
     return bill
 }
 
 export async function decrementQuantity(body) {
+<<<<<<< HEAD
     const products = await getCollection(DB_GARCONET, "products")
     const productFound = await products.findOne({ name: body.name })
 
@@ -279,12 +446,35 @@ export async function decrementQuantity(body) {
         , {
             $set: {
                 btray: billFound.btray
+=======
+    const products = await getCollection(DB_GARCONET, "produtos")
+    const productFound = await products.findOne({ nome: body.nome })
+
+
+    const collection = await getCollection(DB_GARCONET, "conta")
+    const billFound = await collection.findOne({ _id: mongodb.ObjectId(body.idconta) })
+    console.log(billFound)
+    const trayFound = await billFound.bandeja.find(b => b._id.toHexString() === body.idbandeja)
+    console.log(trayFound)
+    const itemFound = trayFound.artigos.find(a => a.nome === body.nome)
+    if (itemFound.quantidade > 0) {
+        itemFound.quantidade -= 1
+        itemFound.valor -= productFound.preco
+    }
+    console.log(itemFound)
+    const trayUpdated = await collection.updateOne(
+        { _id: mongodb.ObjectId(body.idconta) }
+        , {
+            $set: {
+                bandeja: billFound.bandeja
+>>>>>>> main
             }
         })
     return trayUpdated
 }
 
 export async function incrementQuantity(body) {
+<<<<<<< HEAD
     const products = await getCollection(DB_GARCONET, "products")
     const productFound = await products.findOne({ name: body.name })
 
@@ -302,22 +492,51 @@ export async function incrementQuantity(body) {
         , {
             $set: {
                 btray: billFound.btray
+=======
+    const products = await getCollection(DB_GARCONET, "produtos")
+    const productFound = await products.findOne({ nome: body.nome })
+
+
+    const collection = await getCollection(DB_GARCONET, "conta")
+    const billFound = await collection.findOne({ _id: mongodb.ObjectId(body.idconta) })
+    console.log(billFound)
+    const trayFound = await billFound.bandeja.find(b => b._id.toHexString() === body.idbandeja)
+    console.log(trayFound)
+    const itemFound = trayFound.artigos.find(a => a.nome === body.nome)
+    itemFound.quantidade += 1
+    itemFound.valor += parseFloat(productFound.preco)
+    const trayUpdated = await collection.updateOne(
+        { _id: mongodb.ObjectId(body.idconta) }
+        , {
+            $set: {
+                bandeja: billFound.bandeja
+>>>>>>> main
             }
         })
     return trayUpdated
 }
 
 export async function deliverOrder(body) {
+<<<<<<< HEAD
     const collection = await getCollection(DB_GARCONET, "bill")
     const billFound = await collection.findOne({ _id: mongodb.ObjectId(body.idbill) })
 
     console.log(billFound)
 
     const trayFound = await billFound.btray.find(b => b._id.toHexString() === body.idbtray)
+=======
+    const collection = await getCollection(DB_GARCONET, "conta")
+    const billFound = await collection.findOne({ _id: mongodb.ObjectId(body.idconta) })
+
+    console.log(billFound)
+
+    const trayFound = await billFound.bandeja.find(b => b._id.toHexString() === body.idbandeja)
+>>>>>>> main
     
     console.log(trayFound)
 
     //provavelmente há um passo anterior
+<<<<<<< HEAD
     trayFound.open = false
 
     const trayUpdated = await collection.updateOne(
@@ -325,6 +544,15 @@ export async function deliverOrder(body) {
         , {
             $set: {
                 btray: billFound.btray
+=======
+    trayFound.aberta = false
+
+    const trayUpdated = await collection.updateOne(
+        { _id: mongodb.ObjectId(body.idconta) }
+        , {
+            $set: {
+                bandeja: billFound.bandeja
+>>>>>>> main
             }
         }
     )
@@ -332,16 +560,27 @@ export async function deliverOrder(body) {
 }
 
 export async function killBill() {
+<<<<<<< HEAD
     const collection = await getCollection(DB_GARCONET, "bill")
+=======
+    const collection = await getCollection(DB_GARCONET, "conta")
+>>>>>>> main
     
 
     //92% de certeza que isso não está do jeito que deveria
     await collection.updateOne(
         {
+<<<<<<< HEAD
             open: true
         } , {
             $set: {
                 open: false
+=======
+            aberta: true
+        } , {
+            $set: {
+                aberta: false
+>>>>>>> main
             }
         }
     )

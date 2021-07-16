@@ -1,4 +1,8 @@
 import './App.css';
+<<<<<<< HEAD
+=======
+import Paginadelogin from "./Paginadelogin"
+>>>>>>> main
 import PaginaPrincipal from './Paginaprincipal';
 import BackButton from './Componentes/BackButton';
 import React from "react"
@@ -17,6 +21,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+<<<<<<< HEAD
       "itemquantity": 0,
       "totalvalue": 0,
       "addedvalue": 0 
@@ -92,3 +97,83 @@ export default class App extends React.Component {
     );
   }
 }
+=======
+      "quantidadedeitens": 0,
+      "valortotal": 0,
+      "valoradicionado": 0 
+    }    
+  }
+
+  getBillAmount() {
+    fetch("/valordaconta")
+    .then(res => res.json())
+    .then(json => this.setState((state) => ({
+      valoradicionado: json
+    })))
+    console.log(this.state.valoradicionado)
+  }
+
+  stateToZero() {
+    this.setState((state) => ({
+      valortotal: 0,
+      quantidadedeitens: 0
+    }))
+  }
+  
+
+  handleState = (quantity, valor) => {
+    
+    this.setState((state) => ({
+      quantidadedeitens: state.quantidadedeitens + quantity,
+      valortotal: state.valortotal + valor
+    }))
+   
+  }  
+  
+  componentDidMount() {
+    setInterval(() => {
+      fetch("/quantevalor")
+      .then(res => res.json())
+      .then(json => this.setState((state) => ({
+        quantidadedeitens: json.quantidade,
+        valortotal: json.valor,
+        valoradicionado: json.valortotal
+      })))      
+    }, 1000);    
+  }
+
+  render() {
+    return (
+     <Router>
+       <div>
+       <BackButton />
+       <nav>
+        <Link to="/"></Link>
+       </nav>
+       <Switch>
+          <Route exact path="/">
+          <PaginaPrincipal valoradicionado={this.state.valoradicionado}/>
+          </Route>
+          <Route path="/menu/:category">
+            <MenuPart handleState={this.handleState} />
+          </Route>
+          <Route path="/menu">
+            <Menu 
+            quantidadeitens={this.state.quantidadedeitens} 
+            valortotal={this.state.valortotal} 
+            adicionarvalor={() => this.getBillAmount()} 
+            stateToZero={() => this.stateToZero()} />
+          </Route>
+          <Route>
+            <CloseTab path="/closetab"/>
+          </Route>
+       </Switch>
+       <p>Quantidade de itens a adicionar: {this.state.quantidadedeitens}</p>
+       <p>Valor total: {this.state.valoradicionado.toFixed(2)} € + {this.state.valortotal.toFixed(2)} €</p>
+       </div>
+     </Router>
+    );
+  }
+}
+
+>>>>>>> main

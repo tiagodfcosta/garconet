@@ -14,7 +14,11 @@ export class Menu extends React.Component{
         fetch("/order", {
             method: "POST"
         })
+<<<<<<< HEAD
         .then(res => this.props.addvalue())
+=======
+        .then(res => this.props.adicionarvalor())
+>>>>>>> main
         .then(res => this.props.stateToZero())
     }
     
@@ -29,7 +33,11 @@ export class Menu extends React.Component{
                     <Link to="/menu/sobremesa"><button >Sobremesa</button></Link>            
                 </div>
                 <div>
+<<<<<<< HEAD
                     <button className={this.props.totalvalue === 0 ? "disable" : "enable"} 
+=======
+                    <button className={this.props.valortotal === 0 ? "disable" : "enable"} 
+>>>>>>> main
                     onClick={() => this.handleOrder()}>Submeter pedido</button>  
                 </div>                
             </div>
