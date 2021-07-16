@@ -1,7 +1,7 @@
 import './App.css';
 import Paginadelogin from "./Paginadelogin"
 import mainPage from './mainPage';
-import backButton from './Components/backButton';
+import BackButton from './Components/BackButton';
 import React from "react"
 import {Menu} from './Menu'
 import { menuPart } from './Components/menuPart';
@@ -71,10 +71,10 @@ export default class App extends React.Component {
        </nav>
        <Switch>
           <Route exact path="/">
-          <PaginaPrincipal addedvalue={this.state.addedvalue}/>
+          <mainPage addedvalue={this.state.addedvalue}/>
           </Route>
           <Route path="/menu/:category">
-            <MenuPart handleState={this.handleState} />
+            <menuPart handleState={this.handleState} />
           </Route>
           <Route path="/menu">
             <Menu 

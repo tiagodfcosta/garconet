@@ -1,6 +1,6 @@
 import { useHistory, useLocation } from "react-router-dom";
 
-function backButton() {
+function BackButton() {
     const location = useLocation();
     const history = useHistory();
 
@@ -20,4 +20,4 @@ function backButton() {
     return <button onClick={back}>Voltar</button>
 }
 
-export default backButton
+export default BackButton

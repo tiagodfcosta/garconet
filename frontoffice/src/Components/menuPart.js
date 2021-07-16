@@ -6,7 +6,7 @@ import {
 import Popup from "./popUp";
 import "./menuPart.css"
 
-export function menuPart(props) {
+export function MenuPart(props) {
     const {category} = useParams();
   
     const [prods, setProds] = useState([]) 
