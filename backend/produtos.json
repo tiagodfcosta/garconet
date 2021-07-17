@@ -26,7 +26,7 @@
     },
   {
     "categories": "aperitivos",
-    "name" : "Hummus com Sabor a Chili e Limão sem Glúten",
+    "name" : "Hummus Sabor a Chili e Limão ",
     "price" : "2.19",
     "description" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
     "capacity": "135 gr",
@@ -80,7 +80,7 @@
     "price" : "2",
     "description" : "Deliciosos gelados de morango e nata com mais xarope de morango no topo. Tudo isto num cone de bolacha com o pedacinho de chocolate no final.",
     "capacity": "90 ml",
-    "image": "/cornetto.jpeg"
+    "image": "/cornetto.png"
     },
   {
     "categories": "sobremesa",
