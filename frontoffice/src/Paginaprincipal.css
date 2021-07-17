@@ -25,6 +25,15 @@ button {
     border-radius: 15px;
     font-size: 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: whitesmoke;
+    transition: 300ms;
+    
+}
+
+button:hover {
+    background-color: yellow;
+    transform: scale(1.1);
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 .pedirajuda {

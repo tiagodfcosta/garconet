@@ -86,8 +86,8 @@ export default class App extends React.Component {
           </Route>
        </Switch>
        <div className="footer">
-          <p>Quantidade de itens a adicionar: {this.state.itemquantity}</p>
-          <p>Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
+          <p className="itensfooter">Quantidade de itens a adicionar: {this.state.itemquantity}</p>
+          <p className="itensfooter">Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
        </div>
        <div className="logogn">
           <img className="gnlogo" src="gnlogo.png" />
