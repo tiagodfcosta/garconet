@@ -42,10 +42,13 @@
 .footer {
   display: flex;
   flex-direction: column;
+  background-color: rgb(145,87,193); 
+  border: rgb(145,87,193);
+  border-radius: 0 0 25px 25px;
   
 }
 
 .gnlogo {
   width: 50px;
-  
+  padding-top: 15px;
 }
