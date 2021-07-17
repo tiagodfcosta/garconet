@@ -47,8 +47,8 @@ class PaginaPrincipal extends React.Component {
     render() {
         return (
             <>
-                <div>
-                    <img className="logorestaurant" src="tascadajoana.jpg"></img>
+                <div className="background">
+                    <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
                     
                     
 
