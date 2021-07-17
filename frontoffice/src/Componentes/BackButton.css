@@ -1,6 +1,8 @@
 .backbutton {
-    position: relative;
+    position: absolute;
     top: 10px;
-    left: -130px;
+    left: 10px;
     width: 150px;
+    background-color: white;
+    z-index: 1;
 }

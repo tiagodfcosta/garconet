@@ -5,16 +5,20 @@
 
 ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     position: relative;
-    left: -15px;
+    left: -17px;
     list-style-type: none;
-    margin-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    
 }
 
-li {
-    margin-top: 20px;
-}
+
 
 .setquantity {
     display: flex;
@@ -24,4 +28,22 @@ li {
 
 .increment-and-decrement {
     width: 50px;
+}
+
+.background {
+    background-color: whitesmoke;
+}
+
+.select {
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border: black 1px solid;
+    margin-top: 5px;
+}
+
+.select:hover {
+    transform: scale(1.05);
+    background-color: rgb(145,87,193);
+    color: white;
 }
