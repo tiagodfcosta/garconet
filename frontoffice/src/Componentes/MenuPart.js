@@ -40,7 +40,7 @@ export function MenuPart(props) {
   const togglePopupX = async (e) => {
     setIsOpen(!isOpen);           
     setSelectProduct(e);   
-    setQuantity(1);
+    setQuantity(0);
   }
 
   const reduceQuantity = () => {
