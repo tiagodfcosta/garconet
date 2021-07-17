@@ -37,9 +37,15 @@
   }
 }
 
+
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 .gnlogo {
   width: 50px;
-  position: relative;
-  right: 0px;
-  bottom: 0px;
+  
 }

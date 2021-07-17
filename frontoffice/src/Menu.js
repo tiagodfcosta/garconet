@@ -23,6 +23,7 @@ export class Menu extends React.Component{
         return (
             <div>
                 <div className="categories">
+                    <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
                     <h2>O que queres comer?</h2>
                     <Link to="/menu/bebidas"><button >Bebidas</button></Link>
                     <Link to="/menu/aperitivos"><button >Aperitivos</button></Link>
