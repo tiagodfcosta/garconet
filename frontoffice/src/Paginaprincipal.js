@@ -9,6 +9,7 @@ import {
 import ContaAtual from "./Componentes/Contaatual.js";
 import { format, compareAsc } from 'date-fns'
 import CloseTab from "./Closetab"
+import "./Paginaprincipal.css"
 
 class PaginaPrincipal extends React.Component {
     constructor(props) {
@@ -48,15 +49,16 @@ class PaginaPrincipal extends React.Component {
             <>
                 <div>
                     <h2>Restaurante da Gertrudes</h2>
-                    <img className="logogarconet" alt="logogarconet" src="logogarconet.png" />
-                    <div>
-                        <p>burger menu do canto</p>
-                    </div>
+                    
+                    <img className="logogarconet" alt="logogarconet" src="garconetlogo.png" />
+
                     <br></br>
-                    <Link to="/menu"><button>MENU</button></Link>
-                    <button onClick={this.togglePopup}>Ver conta atual</button>
-                    <Link to="/closetab"><button>Fechar a conta</button></Link>
-                    <button>Pedir ajuda</button>
+                    <div className="botoes">
+                        <Link to="/menu"><button >MENU</button></Link>
+                        <button onClick={this.togglePopup}>Ver conta atual</button>
+                        <Link to="/closetab"><button>Fechar a conta</button></Link>                        
+                    </div>
+                    <button className="pedirajuda" >Pedir ajuda</button>
                     {this.state.isOpen && <ContaAtual
                         content={<>
                             <b>Os seus pedidos</b>
@@ -78,6 +80,7 @@ class PaginaPrincipal extends React.Component {
                         </>}
                         handleClose={() => this.togglePopup()}
                     />}
+                    
                 </div>
             </>
         )

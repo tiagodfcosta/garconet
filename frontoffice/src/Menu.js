@@ -22,9 +22,11 @@ export class Menu extends React.Component{
     render(){
         return (
             <div>
-                <div>
+                <div className="categories">
+                    <h2>O que queres comer?</h2>
                     <Link to="/menu/bebidas"><button >Bebidas</button></Link>
                     <Link to="/menu/aperitivos"><button >Aperitivos</button></Link>
+                    <br/>
                     <Link to="/menu/comida"><button >Comida</button></Link>
                     <Link to="/menu/sobremesa"><button >Sobremesa</button></Link>            
                 </div>

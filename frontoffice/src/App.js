@@ -87,6 +87,7 @@ export default class App extends React.Component {
        </Switch>
        <p>Quantidade de itens a adicionar: {this.state.itemquantity}</p>
        <p>Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
+       <img className="gnlogo" src="gnlogo.png" />
        </div>
      </Router>
     );

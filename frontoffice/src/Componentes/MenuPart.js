@@ -66,9 +66,13 @@ export function MenuPart(props) {
         <ul>{prods.map(e => {
           return <li>
             <img className="products" alt="products" src={e.image}/>
-            {e.name}<br/>
-            {e.price}€<br/>
+            <br/>
+            {e.name}
+            <br/>
+            {e.price}€
+            <br/>
             <input type="button" value="Select" onClick={() => togglePopup(e)}/>
+            <br/>
           </li>
         })}</ul>
         {isOpen && <Popup
@@ -76,9 +80,11 @@ export function MenuPart(props) {
         <b>{selectedProduct.name}</b>
         <p>{selectedProduct.description}</p>
         <img className="products" alt="products" src={selectedProduct.image}/> <br/>
-        <button onClick={reduceQuantity}>-</button>
-        <p>{quantity}</p>
-        <button onClick={addQuantity}>+</button> <br></br>
+        <div className="setquantity">
+          <button className="increment-and-decrement" onClick={reduceQuantity}>-</button>
+          <p>{quantity}</p>
+          <button className="increment-and-decrement" onClick={addQuantity}>+</button> <br></br>
+        </div>
         <button onClick={() => { 
           props.handleState(quantity, parseFloat(selectedProduct.price) * quantity); 
           //props.updateTray(); 

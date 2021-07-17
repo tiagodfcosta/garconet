@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.gnlogo {
+  width: 50px;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+}

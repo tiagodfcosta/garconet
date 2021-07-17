@@ -1,4 +1,5 @@
 import { useHistory, useLocation } from "react-router-dom";
+import "./BackButton.css"
 
 function BackButton() {
     const location = useLocation();
@@ -15,7 +16,7 @@ function BackButton() {
         return null
     }
 
-    return <button onClick={back}>Voltar</button>
+    return <button className="backbutton" onClick={back}>Voltar</button>
 }
 
 export default BackButton
