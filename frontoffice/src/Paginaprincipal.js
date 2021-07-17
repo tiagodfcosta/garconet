@@ -48,17 +48,18 @@ class PaginaPrincipal extends React.Component {
         return (
             <>
                 <div>
-                    <h2>Restaurante da Gertrudes</h2>
+                    <img className="logorestaurant" src="tascadajoana.jpg"></img>
                     
-                    <img className="logogarconet" alt="logogarconet" src="garconetlogo.png" />
+                    
 
-                    <br></br>
+                    
                     <div className="botoes">
                         <Link to="/menu"><button >MENU</button></Link>
                         <button onClick={this.togglePopup}>Ver conta atual</button>
                         <Link to="/closetab"><button>Fechar a conta</button></Link>                        
                     </div>
-                    <button className="pedirajuda" >Pedir ajuda</button>
+                    {/* <img className="logogarconet" alt="logogarconet" src="garconetlogo.png" /> */}
+                    
                     {this.state.isOpen && <ContaAtual
                         content={<>
                             <b>Os seus pedidos</b>

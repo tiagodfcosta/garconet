@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    
     
 }
 
@@ -29,3 +29,6 @@ button {
     
 }
 
+.logorestaurant {
+    width: 300px;
+}
