@@ -6,6 +6,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import "./Closetab.css"
 
 class CloseTab extends React.Component {
     constructor(props) {
@@ -21,8 +22,8 @@ class CloseTab extends React.Component {
             .then(res => res.json())
             .then(res => {
                 this.setState((state) => ({
-                    conta: res.btray.map((e) => ({
-                        "ofcreationdate": e.creationdate,
+                    bill: res.btray.map((e) => ({
+                        "ofcreationdate": e.creationDate,
                         "products": e.items
                     }))
                 }))
@@ -40,7 +41,9 @@ class CloseTab extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="background">
+                <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
+                <br></br>
                 <b>Os seus pedidos</b>
                             <ol>
                                 {this.state.bill.map((e) => {
@@ -55,12 +58,14 @@ class CloseTab extends React.Component {
                                     </li>
                                 )}
                                 )}
+                                
                             </ol>
+                            <p><b>Escolha um método de pagamento:</b></p>
                             <input type="radio" value="Credit" name="payment" /> Credit Card
                             <input type="radio" value="MbWay" name="payment" /> MBWay
                             <input type="radio" value="Body" name="payment" /> Lavar loiça
                             <br></br>
-                            <Link to="/"><button onClick={() => this.killBill()}>Pagar</button></Link>          
+                            <Link to="/"><button className="pagar" onClick={() => this.killBill()}>Pagar</button></Link>          
             </div>
         )
     }

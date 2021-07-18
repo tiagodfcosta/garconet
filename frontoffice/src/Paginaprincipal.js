@@ -61,8 +61,8 @@ class PaginaPrincipal extends React.Component {
                     {/* <img className="logogarconet" alt="logogarconet" src="garconetlogo.png" /> */}
                     
                     {this.state.isOpen && <ContaAtual
-                        content={<>
-                            <b>Os seus pedidos</b>
+                        content={<div className="conteudo-popup">
+                            <b className="seus-pedidos">Os seus pedidos</b>
                             <ol>
                                 {this.state.bill.map((e) => {
                                 return (
@@ -77,8 +77,8 @@ class PaginaPrincipal extends React.Component {
                                 )}
                                 )}
                             </ol>
-                            <p>Valor total: {this.props.addedvalue.toFixed(2)} €</p>
-                        </>}
+                            <b className="valor-total">Valor total: {this.props.addedvalue.toFixed(2)} €</b>
+                        </div>}
                         handleClose={() => this.togglePopup()}
                     />}
                     

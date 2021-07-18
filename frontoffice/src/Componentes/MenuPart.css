@@ -3,6 +3,12 @@
     height: 200px;
 }
 
+.productspop {
+    width: 200px;
+    height: 200px;
+    border: solid black 1px;
+}
+
 ul {
     display: flex;
     flex-direction: row;
@@ -24,10 +30,12 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .increment-and-decrement {
-    width: 50px;
+    width: 40px;
+    height: 30px;
 }
 
 .background {
@@ -40,10 +48,16 @@ ul {
     background-color: white;
     border: black 1px solid;
     margin-top: 5px;
+    font-size: 18px;
 }
 
 .select:hover {
     transform: scale(1.05);
     background-color: rgb(145,87,193);
     color: white;
+}
+
+li {
+    margin-left: 10px;
+    margin-right: 10px;
 }

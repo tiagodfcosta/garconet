@@ -1,0 +1,16 @@
+.logorestaurant {
+    width: 250px;
+}
+
+body {
+    font-size: 20px;
+}
+
+.background {
+    background-color: whitesmoke;
+}
+
+.pagar {
+    background-color: white;
+    margin: 15px;
+}

@@ -52,3 +52,20 @@ button:hover {
 .background {
     background-color: whitesmoke;
 }
+
+ol {
+    list-style-type: none;
+}
+
+li {
+    position: relative;
+    left: -20px;
+}
+
+.seus-pedidos {
+    font-size: 25px;
+}
+
+.valor-total {
+    font-size: 20px;
+}
