@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import React from "react"
 import Popup from "./popUp"
+import "./Restaurante.css"
 
 class Restaurante extends React.Component {
     constructor(props) {
@@ -71,7 +72,8 @@ class Restaurante extends React.Component {
     render() {
         return (
             <div>
-                <h1>Pedidos não entregues:</h1>
+                <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
+                <h1>Pedidos em espera:</h1>
 
                 {this.state.bills.map(e => e.btray.filter(e => e.open === true).map(e =>
                     (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')}</button>)
@@ -85,7 +87,7 @@ class Restaurante extends React.Component {
                                 .map(b => b.items
                                     .map(a => (
                                         <p>
-                                            <button onClick={() => this.decrement(e, b, a)}>-</button>
+                                            <button className="decrement" onClick={() => this.decrement(e, b, a)}>-</button>
                                             {a.quantity}
                                              x {a.name} <br />
                                         </p>
@@ -102,6 +104,8 @@ class Restaurante extends React.Component {
                     </>}
                     handleClose={this.togglePopupX}
                 />}
+                <br></br>
+                <img className="logogn" src="gnlogo.png"></img>
             </div>
         )
     }
