@@ -86,7 +86,7 @@ class Restaurante extends React.Component {
                                 .filter(e => e.open === true && e.creationDate === this.state.buttondate)
                                 .map(b => b.items
                                     .map(a => (
-                                        <p>
+                                        <p className="product-name">
                                             <button className="decrement" onClick={() => this.decrement(e, b, a)}>-</button>
                                             {a.quantity}
                                              x {a.name} <br />
