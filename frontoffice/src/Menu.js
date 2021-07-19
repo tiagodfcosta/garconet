@@ -35,7 +35,7 @@ export class Menu extends React.Component {
                     </div>
                     <div>
                         <button className={this.props.totalvalue === 0 ? "disable" : "enable"}
-                            onClick={() => this.handleOrder()}>Submeter pedido</button>
+                            onClick={() => this.handleOrder()} disabled={!this.props.value} >Submeter pedido</button>
                     </div>
                 </div>
             </div>
