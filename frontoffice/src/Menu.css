@@ -1,5 +1,6 @@
 .disable {
-    background-color: lightcoral;
+    background-color: rgba(245, 245, 245, 0.249);
+;
 }
 .enable {
     background-color: lightgreen;
@@ -36,5 +37,5 @@
 
 .disable:hover {
     transform: none;
-    background-color: lightcoral;
+    background-color: rgba(245, 245, 245, 0.249);
 }
