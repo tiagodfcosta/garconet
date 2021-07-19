@@ -19,6 +19,8 @@ body {
     width: 300px;
     height: 60px;
     margin: 5px;
+    margin-bottom: 20px;
+    margin-top:0px;
     border-radius: 15px;
     font-size: 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -46,4 +48,8 @@ input[type="radio"] {
     -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
     transform: scale(1.5);
     
+}
+
+.pick-a-method{
+    margin-bottom: 0;
 }
