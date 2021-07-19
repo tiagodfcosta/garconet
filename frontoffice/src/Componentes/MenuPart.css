@@ -25,6 +25,10 @@ ul {
     background-color: lightgreen;
 }
 
+.addRequest {
+    background-color: lightgreen;
+}
+
 .setquantity {
     display: flex;
     flex-direction: row;
