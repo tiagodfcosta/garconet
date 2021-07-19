@@ -20,7 +20,7 @@ export default class App extends React.Component {
       "itemquantity": 0,
       "totalvalue": 0,
       "addedvalue": 0 
-    }    
+    }
   }
 
   getBillAmount() {
@@ -86,9 +86,15 @@ export default class App extends React.Component {
           </Route>
        </Switch>
        <div className="footer">
-          <p className="itensfooter">Quantidade de itens a adicionar: {this.state.itemquantity}</p>
-          <p>Valor da bandeja: {this.state.totalvalue.toFixed(2)} €</p>
-          <p className="itensfooter">Valor total a pagamento: {this.state.addedvalue.toFixed(2)} €</p>
+          <p className="itensfooter">
+          Quantidade de itens a adicionar: {this.state.itemquantity}
+          <br/>
+          Valor da bandeja: {this.state.totalvalue.toFixed(2)} €
+          </p>
+          <div style={{ borderTop: "2px solid #fff ", marginLeft: 750, marginRight: 750 }}></div>
+          <p className="itensfooter">
+          Valor total: {this.state.addedvalue.toFixed(2)} €
+          </p>
        </div>
        <div className="logogn">
          <p>Criado por: </p> <img className="gnlogo" src="garconetlogo.png" />
