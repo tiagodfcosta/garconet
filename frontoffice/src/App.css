@@ -50,8 +50,18 @@
 }
 
 .gnlogo {
-  width: 50px;
-  padding-top: 15px;
+  width: 80px;
+  margin-left: 8px;
+  margin-top: 5px;
+  
+}
+
+.logogn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .itensfooter {

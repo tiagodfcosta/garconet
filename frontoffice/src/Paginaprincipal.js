@@ -50,9 +50,6 @@ class PaginaPrincipal extends React.Component {
                 <div className="background">
                     <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
                     
-                    
-
-                    
                     <div className="botoes">
                         <Link to="/menu"><button >MENU</button></Link>
                         <button onClick={this.togglePopup}>Ver conta atual</button>
