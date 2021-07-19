@@ -91,10 +91,10 @@ export default class App extends React.Component {
           <br/>
           Valor da bandeja: {this.state.totalvalue.toFixed(2)} €
           </p>
-          <div style={{ borderTop: "2px solid #fff ", marginLeft: 750, marginRight: 750 }}></div>
-          <p className="itensfooter">
+          <div style={{ borderTop: "2px solid #fff ", width: "100%", maxWidth: "250px",  margin: "0 auto", }}></div>
+          <b className="itensfooter">
           Valor total: {this.state.addedvalue.toFixed(2)} €
-          </p>
+          </b>
        </div>
        <div className="logogn">
          <p>Criado por: </p> <img className="gnlogo" src="garconetlogo.png" />
