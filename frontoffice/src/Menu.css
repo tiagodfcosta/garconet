@@ -29,3 +29,8 @@
     font-size: 35px;
     color: yellow;
 }
+
+.disabled:hover {
+    transform: none;
+    background-color: lightcoral;
+}

@@ -34,8 +34,12 @@ export class Menu extends React.Component {
                         <Link to="/menu/sobremesa"><button >Sobremesa</button></Link>
                     </div>
                     <div>
-                        <button className={this.props.totalvalue === 0 ? "disable" : "enable"}
-                            onClick={() => this.handleOrder()}>Submeter pedido</button>
+                        <button 
+                            className={this.props.totalvalue === 0 ? "disable" : "enable"}
+                            onClick={() => this.handleOrder()} 
+                            disabled={!this.props.totalvalue}>
+                                Submeter pedido
+                        </button>
                     </div>
                 </div>
             </div>
