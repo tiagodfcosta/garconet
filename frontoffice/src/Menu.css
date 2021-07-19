@@ -30,6 +30,10 @@
     color: yellow;
 }
 
+.enable:hover {
+    background-color: lightgreen;
+}
+
 .disable:hover {
     transform: none;
     background-color: lightcoral;

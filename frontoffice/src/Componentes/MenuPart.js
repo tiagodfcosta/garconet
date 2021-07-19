@@ -87,7 +87,7 @@ export function MenuPart(props) {
               <p>{quantity}</p>
               <button className="increment-and-decrement" onClick={addQuantity}>+</button> <br></br>
             </div>
-            <button onClick={() => {
+            <button className="addRequest" onClick={() => {
               props.handleState(quantity, parseFloat(selectedProduct.price) * quantity);
               //props.updateTray(); 
               togglePopup()
