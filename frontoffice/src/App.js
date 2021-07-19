@@ -85,10 +85,6 @@ export default class App extends React.Component {
             <CloseTab path="/closetab"/>
           </Route>
        </Switch>
-<<<<<<< Updated upstream
-       <p>Quantidade de itens a adicionar: {this.state.itemquantity}</p>
-       <p>Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
-=======
        <div className="footer">
           <p className="itensfooter">Quantidade de itens a adicionar: {this.state.itemquantity}</p>
           <p className="itensfooter">Valor da bandeja: {this.state.totalvalue.toFixed(2)} €</p>
@@ -98,7 +94,6 @@ export default class App extends React.Component {
          <p>Produto desenvolvido por: Garçonete</p>
           <img className="gnlogo" src="gnlogo.png" />
        </div>
->>>>>>> Stashed changes
        </div>
      </Router>
     );

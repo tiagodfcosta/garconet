@@ -21,19 +21,10 @@ export class Menu extends React.Component{
 
     render(){
         return (
-<<<<<<< Updated upstream
-            <div>
-                <div>
-                    <Link to="/menu/bebidas"><button >Bebidas</button></Link>
-                    <Link to="/menu/aperitivos"><button >Aperitivos</button></Link>
-                    <Link to="/menu/comida"><button >Comida</button></Link>
-                    <Link to="/menu/sobremesa"><button >Sobremesa</button></Link>            
-=======
             <div className="background">
                 <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
                 <div className="corpo">
                     <div className="categories">
-
                         <h2 className="quequeres" >O que queres comer?</h2>
                         <Link to="/menu/bebidas"><button >Bebidas</button></Link>
                         <Link to="/menu/aperitivos"><button >Aperitivos</button></Link>
@@ -45,7 +36,6 @@ export class Menu extends React.Component{
                         <button className={this.props.totalvalue === 0 ? "disable" : "enable"}
                             onClick={() => this.handleOrder()} disabled={!this.props.value} className="SubmitButton">Submeter pedido</button>
                     </div>
->>>>>>> Stashed changes
                 </div>
                 <div>
                     <button className={this.props.totalvalue === 0 ? "disable" : "enable"} 
@@ -55,4 +45,3 @@ export class Menu extends React.Component{
         )
     }
 }
-
