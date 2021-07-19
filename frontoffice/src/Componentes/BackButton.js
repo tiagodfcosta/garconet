@@ -1,5 +1,7 @@
 import { useHistory, useLocation } from "react-router-dom";
 import "./BackButton.css"
+import { IoIosArrowBack } from 'react-icons/io'
+
 
 function BackButton() {
     const location = useLocation();
@@ -16,7 +18,7 @@ function BackButton() {
         return null
     }
 
-    return <button className="backbutton" onClick={back}>Voltar</button>
+    return <button className="backbutton" onClick={back}><IoIosArrowBack/></button>
 }
 
 export default BackButton
