@@ -58,7 +58,6 @@ class CloseTab extends React.Component {
                                     </li>
                                 )}
                                 )}
-                                
                             </ol>
                             <p><b>Escolha um método de pagamento:</b></p>
                             <input type="radio" value="Credit" name="payment" /> Credit Card
