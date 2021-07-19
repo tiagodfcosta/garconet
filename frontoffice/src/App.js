@@ -87,7 +87,8 @@ export default class App extends React.Component {
        </Switch>
        <div className="footer">
           <p className="itensfooter">Quantidade de itens a adicionar: {this.state.itemquantity}</p>
-          <p className="itensfooter">Valor total: {this.state.addedvalue.toFixed(2)} € + {this.state.totalvalue.toFixed(2)} €</p>
+          <p>Valor da bandeja: {this.state.totalvalue.toFixed(2)} €</p>
+          <p className="itensfooter">Valor total a pagamento: {this.state.addedvalue.toFixed(2)} €</p>
        </div>
        <div className="logogn">
          <p>Criado por: </p> <img className="gnlogo" src="garconetlogo.png" />
