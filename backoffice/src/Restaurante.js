@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import React from "react"
 import Popup from "./popUp"
+import "./Restaurante.css"
 
 class Restaurante extends React.Component {
     constructor(props) {
@@ -71,12 +72,13 @@ class Restaurante extends React.Component {
     render() {
         return (
             <div>
-                <h1>Pedidos não entregues:</h1>
-
-                {this.state.bills.map(e => e.btray.filter(e => e.open === true).map(e =>
-                    (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')}</button>)
-                ))}
-
+                <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
+                <h1>Pedidos em espera:</h1>
+                <div className="orderslist">
+                    {this.state.bills.map(e => e.btray.filter(e => e.open === true).map(e =>
+                        (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')}</button>)
+                    ))}
+                </div>
                 {this.state.isOpen && <Popup
                     content={<>
                         <b>{this.state.bills
@@ -84,8 +86,8 @@ class Restaurante extends React.Component {
                                 .filter(e => e.open === true && e.creationDate === this.state.buttondate)
                                 .map(b => b.items
                                     .map(a => (
-                                        <p>
-                                            <button onClick={() => this.decrement(e, b, a)}>-</button>
+                                        <p className="product-name">
+                                            <button className="decrement" onClick={() => this.decrement(e, b, a)}>-</button>
                                             {a.quantity}
                                              x {a.name} <br />
                                         </p>
@@ -102,6 +104,9 @@ class Restaurante extends React.Component {
                     </>}
                     handleClose={this.togglePopupX}
                 />}
+                <br></br>
+                <p>Criado por:</p>
+                <img className="logogn" src="garconetlogo.png"></img>
             </div>
         )
     }

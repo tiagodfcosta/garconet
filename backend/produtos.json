@@ -3,7 +3,7 @@
     "categories": "bebidas",
     "name" : "Coca-Cola",
     "price" : "1.50",
-    "description" : "Carregue-se com toda a energia positiva que necessita para o seu dia, com a Coca-Cola Energy, a única bebida energética com o delicioso sabor a Coca-Cola e sem taurina. Com cafeína de fontes naturais, extrato de guaraná e vitaminas B3 e B6.",
+    "description" : "Carregue-se com toda a energia positiva que necessita para o seu dia, com a Coca-Cola Energy.",
     "capacity": "33 cl",
     "image": "/cocacola.jpeg"
     },
@@ -11,7 +11,7 @@
     "categories": "bebidas",
     "name" : "Fanta",
     "price" : "1.50",
-    "description" : "Se quiser viver aventuras plenas de sabor, trate de ter uma Fanta Guaraná sempre à mão, uma coisa que vais perceber assim que a provar.",
+    "description" : "Se quiser viver aventuras plenas de sabor, trate de ter uma Fanta Guaraná sempre à mão.",
     "capacity": "33 cl",
     "image": "/fanta.jpeg"
     },
@@ -26,9 +26,9 @@
     },
   {
     "categories": "aperitivos",
-    "name" : "Hummus com Sabor a Chili e Limão sem Glúten",
+    "name" : "Hummus Sabor a Chili e Limão ",
     "price" : "2.19",
-    "description" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
+    "description" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso.",
     "capacity": "135 gr",
     "image": "/hummus.jpeg"
     },
@@ -36,7 +36,7 @@
     "categories": "aperitivos",
     "name" : "3D's Bacon",
     "price" : "1.45",
-    "description" : "O snack Eat Real Hummus Chips Mar Salt é um óptimo snack com um sabor delicioso. Estes chips são uma alternativa saudável aos às batatas fritas comuns, pois contêm 48% menos de gordura. São naturalmente sem glúten e também são adequados para vegans e vegetarianos. Estes deliciosos e nutritivos snacks podem fazer parte de um lanche super saboroso para ser apreciado por toda a família.",
+    "description" : "Os 3D's Bacon é um óptimo snack com um sabor delicioso.",
     "capacity": "135 gr",
     "image": "/3d.jpeg"
     },
@@ -44,7 +44,7 @@
     "categories": "aperitivos",
     "name" : "Rissóis de Camarão",
     "price" : "3.5",
-    "description" : "Recheio: Miolo de camarão (contém crustáceos)(28%), água, leite em pó, margarina (óleos e gorduras vegetais de palma e girassol, água, sal, soro lácteo, emulsionantes (E-322, E-471 e E4-75), lecitina de soja, dextrose, regulador de acidez (E-330), aroma, antioxidantes (E-310 e E-320) e corante (E-160a)), farinha de trigo, tomate, sal, salsa, cebola (contém sulfitos), azeite, especiarias e corante natural. Massa: Água, farinha de trigo, gordura animal de suíno e sal. Panagem: Pão ralado (farinha de trigo, água, levedura, sal, emulsionante (E-472e), antioxidante (E-300), corante (E-170) e enzimas (contém glúten)), água, farinha de trigo, soro lácteo, espessante (E-412), levedante químico (E-500ii), gordura vegetal de girassol e sal.",
+    "description" : "Recheio: Miolo de camarão (contém crustáceos)(28%), água, leite em pó, margarina, água, sal, soro lácteo.",
     "capacity": "135 gr",
     "image": "/rissois.jpeg"
     },
@@ -52,7 +52,7 @@
     "categories": "comida",
     "name" : "Carne Porco à Portuguesa",
     "price" : "15",
-    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
+    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes.",
     "capacity": "350 gr",
     "image": "/carne_porco.jpeg"
     },
@@ -60,7 +60,7 @@
     "categories": "comida",
     "name" : "Bacalhau à Gomes de Sá",
     "price" : "17",
-    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
+    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes.",
     "capacity": "800 gr",
     "image": "/bacalhau.jpeg"
     },
@@ -69,7 +69,7 @@
     "categories": "comida",
     "name" : "Arroz de Pato",
     "price" : "17",
-    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes ou corantes. São tão saudáveis e saborosas como as que cozinhamos em nossa casa, a única diferença é que são mais práticas. Irá encontrar refeições Pronto-a-Comer, onde só tem de aquecer e saborear, ou refeições Pronto-a-Cozinhar, em que poderá dar um toque mais personalizado.",
+    "description" : "As refeições Fácil e Bom são feitas com os melhores ingredientes, confecionadas de forma tradicional e sem recurso a conservantes.",
     "capacity": "800 gr",
     "image": "/arroz.jpeg"
     },
@@ -80,7 +80,7 @@
     "price" : "2",
     "description" : "Deliciosos gelados de morango e nata com mais xarope de morango no topo. Tudo isto num cone de bolacha com o pedacinho de chocolate no final.",
     "capacity": "90 ml",
-    "image": "/cornetto.jpeg"
+    "image": "/cornetto.png"
     },
   {
     "categories": "sobremesa",
@@ -94,7 +94,7 @@
     "categories": "sobremesa",
     "name" : "Gelado Feast",
     "price" : "2",
-    "description" : "Gelado aromatizado de chocolate com um interior sólido aromatizado de chocolate (13%), cobertura aromatizada de chocolate (19%) e pedaços de biscoito (1,5%).",
+    "description" : "Gelado aromatizado de chocolate com um interior sólido aromatizado de chocolate.",
     "capacity": "90 ml",
     "image": "/feast.jpeg"
     }

@@ -1,5 +1,6 @@
 .disable {
-    background-color: lightcoral;
+    background-color: rgba(245, 245, 245, 0.249);
+;
 }
 .enable {
     background-color: lightgreen;
@@ -7,6 +8,7 @@
 
 .categories {
     margin-top: 10px;
+    
 }
 
 .logorestaurant {
@@ -14,3 +16,26 @@
     margin-top: 0;
 }
 
+.background {
+    background-color: whitesmoke;
+}
+
+.corpo {
+    background-color: rgb(145,87,193);
+    padding-top: 10px;
+    border-radius: 25px 25px 0 0;
+}
+
+.quequeres {
+    font-size: 35px;
+    color: yellow;
+}
+
+.enable:hover {
+    background-color: lightgreen;
+}
+
+.disable:hover {
+    transform: none;
+    background-color: rgba(245, 245, 245, 0.249);
+}

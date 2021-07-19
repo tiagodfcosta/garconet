@@ -73,7 +73,7 @@ app.get("/billvalue", async (req, res) => {
     res.status(200).json(bill)
 })
 
-app.get("/seebill", async (req, res) => {
+app.get("/seebill", async (req, res) =>  {
     const bill = await checkBill()
     if (bill) {
         res.status(200).json(bill)

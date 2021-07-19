@@ -13,7 +13,7 @@ body {
     background-color: rgb(145,87,193);
     border: rgb(145,87,193) 0px solid;
     border-radius: 20px 20px 0 0;
-    padding: 30px;
+    padding: 20px;
     margin-top: 0;
 }
 
@@ -27,12 +27,11 @@ button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: whitesmoke;
     transition: 300ms;
-    
 }
 
 button:hover {
     background-color: yellow;
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
@@ -46,9 +45,26 @@ button:hover {
 }
 
 .logorestaurant {
-    width: 300px;
+    width: 250px;
 }
 
 .background {
     background-color: whitesmoke;
+}
+
+ol {
+    list-style-type: none;
+}
+
+li {
+    position: relative;
+    left: -20px;
+}
+
+.seus-pedidos {
+    font-size: 25px;
+}
+
+.valor-total {
+    font-size: 20px;
 }
