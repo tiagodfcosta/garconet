@@ -53,16 +53,18 @@ class CloseTab extends React.Component {
                                             format(new Date(e.ofcreationdate), 'dd/MM/yyyy HH:mm')
                                         }</p>
                                         <p>{(
-                                            e.products.map(e => <p>{e.quantity} x {e.name} - {e.value.toFixed(2)} €</p>) 
+                                            e.products.map(e => <p>{e.quantity} x {e.name} - {e.value?.toFixed(2)} €</p>) 
                                         )}</p>
                                     </li>
                                 )}
                                 )}
                             </ol>
                             <p><b>Escolha um método de pagamento:</b></p>
-                            <input type="radio" value="Credit" name="payment" /> Credit Card
-                            <input type="radio" value="MbWay" name="payment" /> MBWay
-                            <input type="radio" value="Body" name="payment" /> Lavar loiça
+                            <div className="payment-methods">
+                                <p><input type="radio" value="Credit" name="payment" /> Credit Card</p>
+                                <p><input type="radio" value="MbWay" name="payment" /> MBWay</p>
+                                <p><input type="radio" value="Body" name="payment" /> Lavar loiça</p>
+                            </div>
                             <br></br>
                             <Link to="/"><button className="pagar" onClick={() => this.killBill()} className="payment">Pagar</button></Link>          
             </div>
