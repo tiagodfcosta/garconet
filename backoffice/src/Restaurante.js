@@ -74,11 +74,11 @@ class Restaurante extends React.Component {
             <div>
                 <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
                 <h1>Pedidos em espera:</h1>
-
-                {this.state.bills.map(e => e.btray.filter(e => e.open === true).map(e =>
-                    (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')}</button>)
-                ))}
-
+                <div className="orderslist">
+                    {this.state.bills.map(e => e.btray.filter(e => e.open === true).map(e =>
+                        (<button onClick={() => this.togglePopupX(e)}>{format(new Date(e.creationDate), 'dd/MM/yyyy HH:mm')}</button>)
+                    ))}
+                </div>
                 {this.state.isOpen && <Popup
                     content={<>
                         <b>{this.state.bills

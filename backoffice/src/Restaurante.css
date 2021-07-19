@@ -36,3 +36,9 @@ button:hover {
 .product-name {
     font-size: 35px;
   }
+
+  .orderslist{
+      display : flex;
+      flex-direction: column;
+      align-items: center;
+  }
