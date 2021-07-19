@@ -30,7 +30,7 @@
     color: yellow;
 }
 
-.disable:hover {
+.disabled:hover {
     transform: none;
     background-color: lightcoral;
 }
