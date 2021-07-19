@@ -3,4 +3,34 @@
 }
 .enable {
     background-color: lightgreen;
+<<<<<<< Updated upstream
 }
+=======
+}
+
+.categories {
+    margin-top: 10px;
+    
+}
+
+.logorestaurant {
+    width: 250px;
+    margin-top: 0;
+}
+
+.background {
+    background-color: whitesmoke;
+}
+
+.corpo {
+    background-color: rgb(145,87,193);
+    padding-top: 10px;
+    border-radius: 25px 25px 0 0;
+}
+
+.quequeres {
+    font-size: 35px;
+    color: yellow;
+}
+
+>>>>>>> Stashed changes

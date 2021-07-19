@@ -46,11 +46,24 @@ class PaginaPrincipal extends React.Component {
     render() {
         return (
             <>
+<<<<<<< Updated upstream
                 <div>
                     <h2>Restaurante da Gertrudes</h2>
                     <img className="logogarconet" alt="logogarconet" src="logogarconet.png" />
                     <div>
                         <p>burger menu do canto</p>
+=======
+                <div className="background">
+                    <img className="logorestaurant" src="tascadajoanasemfundo.png"></img>
+                    
+                    
+
+                    
+                    <div className="botoes">
+                        <Link to="/menu"><button className="Menu">Menu</button></Link>
+                        <button onClick={this.togglePopup}>Ver conta atual</button>
+                        <Link to="/closetab"><button>Fechar a conta</button></Link>                        
+>>>>>>> Stashed changes
                     </div>
                     <br></br>
                     <Link to="/menu"><button>MENU</button></Link>
