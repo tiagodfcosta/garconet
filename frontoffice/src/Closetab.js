@@ -53,7 +53,7 @@ class CloseTab extends React.Component {
                                             format(new Date(e.ofcreationdate), 'dd/MM/yyyy HH:mm')
                                         }</p>
                                         <p>{(
-                                            e.products.map(e => <p>{e.quantity} x {e.name} - {e.value.toFixed(2)} €</p>) 
+                                            e.products.map(e => <p>{e.quantity} x {e.name} - {e.value?.toFixed(2)} €</p>) 
                                         )}</p>
                                     </li>
                                 )}
