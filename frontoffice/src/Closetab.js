@@ -65,7 +65,7 @@ class CloseTab extends React.Component {
                             <input type="radio" value="MbWay" name="payment" /> MBWay
                             <input type="radio" value="Body" name="payment" /> Lavar loiça
                             <br></br>
-                            <Link to="/"><button className="pagar" onClick={() => this.killBill()}>Pagar</button></Link>          
+                            <Link to="/"><button className="pagar" onClick={() => this.killBill()} className="payment">Pagar</button></Link>          
             </div>
         )
     }
