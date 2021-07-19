@@ -29,16 +29,16 @@ button:hover {
 }
 
 .logogn {
-    margin-top: 80px;
-    width: 60px;
+    margin-top: 5px;
+    width: 160px;
 }
 
 .product-name {
     font-size: 35px;
   }
 
-  .orderslist{
-      display : flex;
-      flex-direction: column;
-      align-items: center;
-  }
+.orderslist{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}

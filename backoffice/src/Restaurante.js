@@ -105,7 +105,8 @@ class Restaurante extends React.Component {
                     handleClose={this.togglePopupX}
                 />}
                 <br></br>
-                <img className="logogn" src="gnlogo.png"></img>
+                <p>Criado por:</p>
+                <img className="logogn" src="garconetlogo.png"></img>
             </div>
         )
     }

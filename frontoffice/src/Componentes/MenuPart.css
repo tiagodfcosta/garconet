@@ -11,10 +11,9 @@
 
 ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     position: relative;
-    left: -17px;
     list-style-type: none;
     padding-top: 80px;
     padding-bottom: 30px;
@@ -44,11 +43,11 @@ ul {
 
 .select {
     width: 150px;
-    height: 30px;
+    height: 40px;
     background-color: white;
     border: black 1px solid;
     margin-top: 5px;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 .select:hover {
@@ -58,6 +57,6 @@ ul {
 }
 
 li {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
+    
 }
